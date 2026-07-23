@@ -1,0 +1,348 @@
+<title>NETSPHERE — Field Plate 04 · The Gauntlet</title>
+<style>
+:root{
+  --bg:#0e0e0e; --panel:#141414; --panel2:#181818; --line:#2e2e2e; --line2:#232323;
+  --ink:#e6e4de; --dim:#8f8c84; --mute:#5c5a54;
+  --amber:#d9a821; --amber-dim:#8a6b15;
+  --glm:#b98d1f; --v4:#4a90d9; --lag:#c25e8a;
+  --mono:ui-monospace,"Cascadia Mono","JetBrains Mono",Consolas,Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--bg)}
+body{
+  font-family:var(--mono);color:var(--ink);background:var(--bg);
+  font-size:14px;line-height:1.55;-webkit-font-smoothing:antialiased;
+  padding:28px 18px 40px;
+}
+.plate{max-width:1060px;margin:0 auto}
+/* ---------- brand chrome ---------- */
+.brandbar{display:flex;justify-content:space-between;align-items:center;padding:2px 2px 14px}
+.brand{font-weight:700;letter-spacing:.55em;font-size:13px}
+.brand .dot{color:var(--amber);letter-spacing:0}
+.plateno{color:var(--dim);font-size:11px;letter-spacing:.18em}
+.masthead{padding:6px 2px 0}
+h1{font-size:clamp(44px,7.5vw,78px);font-weight:800;letter-spacing:-.01em;line-height:.95;text-transform:uppercase;text-wrap:balance}
+.thesis{color:var(--amber);letter-spacing:.22em;font-size:12px;margin:16px 0 6px;text-transform:uppercase}
+.sub{color:var(--dim);font-size:12.5px;max-width:72ch;margin-top:6px}
+.frame{border:1px solid var(--line);margin-top:20px;position:relative;padding:26px 26px 8px}
+.frame::before,.frame::after{content:"";position:absolute;width:14px;height:14px;border-color:var(--amber);border-style:solid}
+.frame::before{top:-1px;left:-1px;border-width:2px 0 0 2px}
+.frame::after{bottom:-1px;right:-1px;border-width:0 2px 2px 0}
+/* ---------- modules ---------- */
+.mod{border:1px solid var(--line);background:var(--panel);margin:0 0 26px;padding:20px 22px 18px;position:relative;opacity:0;transform:translateY(10px);animation:rise .5s ease forwards}
+.mod:nth-of-type(1){animation-delay:.05s}.mod:nth-of-type(2){animation-delay:.12s}
+.mod:nth-of-type(3){animation-delay:.19s}.mod:nth-of-type(4){animation-delay:.26s}
+.mod:nth-of-type(5){animation-delay:.33s}.mod:nth-of-type(6){animation-delay:.40s}
+.mod:nth-of-type(7){animation-delay:.47s}
+@keyframes rise{to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.mod{animation:none;opacity:1;transform:none}}
+.eyebrow{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}
+.eyebrow .no{color:var(--amber);font-size:11px;letter-spacing:.25em}
+.eyebrow .crop{color:var(--mute);font-size:10px;letter-spacing:.14em}
+h2{font-size:clamp(20px,3vw,28px);font-weight:800;text-transform:uppercase;letter-spacing:.02em;margin-bottom:2px}
+.lede{color:var(--dim);font-size:12px;max-width:80ch;margin-bottom:14px}
+.rule{height:1px;background:var(--line2);margin:12px 0}
+svg{display:block;width:100%;height:auto}
+svg text{font-family:var(--mono)}
+.chartwrap{overflow-x:auto}
+/* ---------- legend ---------- */
+.legend{display:flex;gap:22px;flex-wrap:wrap;margin:2px 0 10px;font-size:11.5px;color:var(--dim)}
+.legend b{color:var(--ink);font-weight:600}
+.swatch{display:inline-block;width:10px;height:10px;margin-right:7px;vertical-align:-1px}
+/* ---------- model cards ---------- */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.card{border:1px solid var(--line);background:var(--panel2);padding:18px 18px 14px;border-top:3px solid var(--c,var(--amber))}
+.card .role{font-size:10.5px;letter-spacing:.3em;color:var(--c)}
+.card h3{font-size:19px;font-weight:800;text-transform:uppercase;margin:4px 0 1px}
+.card .meta{color:var(--mute);font-size:10.5px;letter-spacing:.05em;margin-bottom:12px}
+.big{font-variant-numeric:tabular-nums;font-size:46px;font-weight:800;line-height:1}
+.big small{font-size:16px;color:var(--dim);font-weight:600}
+.bigcap{color:var(--dim);font-size:10.5px;letter-spacing:.15em;margin:2px 0 14px}
+.catrow{display:grid;grid-template-columns:86px 1fr 52px;gap:10px;align-items:center;margin:7px 0;font-size:11.5px}
+.catrow .lab{color:var(--dim);letter-spacing:.04em}
+.catrow .val{text-align:right;font-variant-numeric:tabular-nums;color:var(--ink)}
+.track{height:8px;background:#1f1f1f;position:relative}
+.fill{position:absolute;inset:0 auto 0 0;background:var(--c);border-right:2px solid var(--bg)}
+.sig{border-left:2px solid var(--c);padding:8px 12px;margin:13px 0 12px;color:var(--ink);font-size:12px}
+.sig em{color:var(--dim);font-style:normal;display:block;font-size:10.5px;letter-spacing:.12em;margin-bottom:3px}
+.tstrip{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line2);border:1px solid var(--line2);margin-top:6px}
+.tcell{background:var(--panel);padding:8px 10px}
+.tcell .k{color:var(--mute);font-size:9.5px;letter-spacing:.16em}
+.tcell .v{font-variant-numeric:tabular-nums;font-size:15px;font-weight:700;margin-top:2px}
+.tcell .v small{color:var(--dim);font-size:10px;font-weight:400}
+/* ---------- verdict stamps ---------- */
+.stamps{display:grid;gap:12px}
+.stamp{border:1px dashed var(--amber-dim);padding:14px 18px;display:flex;flex-wrap:wrap;gap:8px 26px;align-items:baseline}
+.stamp.quiet{border-color:var(--line);color:var(--dim)}
+.stamp .verdict{color:var(--amber);font-weight:800;letter-spacing:.2em;font-size:12px}
+.stamp.quiet .verdict{color:var(--mute)}
+.stamp .what{font-size:13px;font-weight:600}
+.stamp .p{font-variant-numeric:tabular-nums;color:var(--dim);font-size:12px}
+.stamp .note{flex-basis:100%;color:var(--dim);font-size:11px}
+/* ---------- footer ---------- */
+.footer{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;border-top:1px solid var(--line);margin-top:8px;padding:16px 2px 4px;color:var(--dim);font-size:11px;letter-spacing:.14em}
+.footer a{color:var(--amber);text-decoration:none;letter-spacing:.06em}
+.footer a:hover,.footer a:focus-visible{text-decoration:underline;outline:none}
+/* ---------- tooltip ---------- */
+#tip{position:fixed;pointer-events:none;background:#050505;border:1px solid var(--amber-dim);color:var(--ink);
+  font:11.5px/1.5 var(--mono);padding:7px 10px;z-index:9;opacity:0;transition:opacity .08s;max-width:260px;white-space:pre}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:760px){.duo{grid-template-columns:1fr}}
+.footnote{color:var(--mute);font-size:10.5px;margin-top:10px;max-width:90ch}
+</style>
+
+<div class="plate">
+  <div class="brandbar">
+    <div class="brand">NETSPHERE<span class="dot"> ●</span></div>
+    <div class="plateno">FIELD PLATE No.04 / 2026-07</div>
+  </div>
+
+  <div class="masthead">
+    <h1>The Gauntlet</h1>
+    <div class="thesis">80 adversarial items · 3 models · 1 night · 1 rig</div>
+    <div class="sub">Our first eval saturated — three frontier-class models, statistically indistinguishable.
+    So we built a harder one: every item adversarially verified before any model saw it, every gold computed by code,
+    no judge model, exact McNemar statistics. Then we ran the incumbent, the giant, and a model released the day before —
+    on the same four GPUs, the same night.</div>
+  </div>
+
+  <div class="frame">
+
+  <!-- P1 · LEADERBOARD -->
+  <section class="mod">
+    <div class="eyebrow"><span class="no">P1 · SCOREBOARD</span><span class="crop">NETSPHERE FIELD PLATE 04</span></div>
+    <h2>v2 · identical items, temp 0, paired</h2>
+    <p class="lede">Pass rate per category (raw counts on the bars). Category maxima differ — bars are % of category.</p>
+    <div class="legend">
+      <span><i class="swatch" style="background:var(--glm)"></i><b>GLM-5.2 Q3</b> · 753B MoE · 3-bit · max effort</span>
+      <span><i class="swatch" style="background:var(--v4)"></i><b>DeepSeek V4-Flash</b> · 284B MoE · TP=4</span>
+      <span><i class="swatch" style="background:var(--lag)"></i><b>Laguna S 2.1</b> · 118B/8B-A · FP8 · day one</span>
+    </div>
+    <div class="chartwrap"><svg id="leader" viewBox="0 0 1000 300" role="img" aria-label="v2 category scores"></svg></div>
+  </section>
+
+  <!-- P2 · MODEL CARDS -->
+  <section class="mod">
+    <div class="eyebrow"><span class="no">P2 · THE THREE</span><span class="crop">NETSPHERE FIELD PLATE 04</span></div>
+    <h2>One rig, three temperaments</h2>
+    <div class="rule"></div>
+    <div class="cards" id="cards"></div>
+    <p class="footnote">Board power = sum of all four GPUs, mean over eval window. GLM figure is decode-phase (its pipeline runs one GPU at a time). All temps on air, fans at idle.</p>
+  </section>
+
+  <!-- P3 · DEPTH CURVE -->
+  <section class="mod">
+    <div class="eyebrow"><span class="no">P3 · THE DEPTH CURVE</span><span class="crop">NETSPHERE FIELD PLATE 04</span></div>
+    <h2>Decode speed vs context depth</h2>
+    <p class="lede">Single-stream tok/s as the prompt grows, 4K → 1M (log scale). Mixed sliding-window attention gives
+    Laguna a near-flat line: <b style="color:var(--ink)">−34% over a 145× depth increase</b>. Hover for exact figures.</p>
+    <div class="legend">
+      <span><i class="swatch" style="background:var(--glm)"></i><b>GLM-5.2 Q3</b> (ceiling 262K)</span>
+      <span><i class="swatch" style="background:var(--v4)"></i><b>DeepSeek V4</b> (1M mode)</span>
+      <span><i class="swatch" style="background:var(--lag)"></i><b>Laguna S 2.1</b> (1M, rope-extended)</span>
+    </div>
+    <div class="chartwrap"><svg id="depth" viewBox="0 0 1000 340" role="img" aria-label="decode tok/s vs context"></svg></div>
+  </section>
+
+  <!-- P4 · NEEDLE DEPTH -->
+  <section class="mod">
+    <div class="eyebrow"><span class="no">P4 · LOST IN THE MIDDLE</span><span class="crop">NETSPHERE FIELD PLATE 04</span></div>
+    <h2>128K retrieval by needle position</h2>
+    <p class="lede">deepctx accuracy by where the answer chain lives in a 128,016-token ledger — 5-hop chains, superseded
+    records, near-miss decoys. The middle of the haystack is where models go to die; V4's sparse-attention stack holds it.</p>
+    <div class="chartwrap"><svg id="needle" viewBox="0 0 1000 270" role="img" aria-label="accuracy by needle depth"></svg></div>
+  </section>
+
+  <!-- P5 · SIGNIFICANCE -->
+  <section class="mod">
+    <div class="eyebrow"><span class="no">P5 · THE VERDICTS</span><span class="crop">NETSPHERE FIELD PLATE 04</span></div>
+    <h2>What is statistically real</h2>
+    <p class="lede">Exact two-sided McNemar on discordant items — the difference between a story and a claim.</p>
+    <div class="stamps">
+      <div class="stamp">
+        <span class="verdict">SIGNIFICANT</span>
+        <span class="what">Hallucination gauntlet · GLM 7–0 over V4</span>
+        <span class="p">p = 0.0156 · n = 30</span>
+        <span class="note">V4 fabricated on seven plausible-but-absent traps where GLM answered NOT IN CONTEXT. Never once the reverse. GLM took all 30; combined with v1, zero fabrications across both suites.</span>
+      </div>
+      <div class="stamp">
+        <span class="verdict">SIGNIFICANT</span>
+        <span class="what">v2 overall · GLM 18–2 over Laguna</span>
+        <span class="p">p = 0.0004 · n = 80</span>
+        <span class="note">The hard suite separates a 753B reasoning giant from an 8B-active newcomer — exactly what the saturated v1 could not do (v1: all pairs p &gt; 0.2).</span>
+      </div>
+      <div class="stamp quiet">
+        <span class="verdict">TIE</span>
+        <span class="what">v2 overall · GLM 67 vs V4 64</span>
+        <span class="p">p = 0.678 · 13–10 discordant</span>
+        <span class="note">No overall winner — the categories split along orthogonal axes. Model selection is a routing problem, not a leaderboard problem.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- P6 · COST OF THE ANSWER -->
+  <section class="mod">
+    <div class="eyebrow"><span class="no">P6 · COST OF THE ANSWER</span><span class="crop">NETSPHERE FIELD PLATE 04</span></div>
+    <h2>Same 80 questions, three bills</h2>
+    <div class="duo">
+      <div>
+        <p class="lede">Wall-clock for the full suite</p>
+        <div class="chartwrap"><svg id="wall" viewBox="0 0 470 170" role="img" aria-label="wall clock"></svg></div>
+      </div>
+      <div>
+        <p class="lede">Mean board power during eval (4-GPU sum)</p>
+        <div class="chartwrap"><svg id="power" viewBox="0 0 470 170" role="img" aria-label="board power"></svg></div>
+      </div>
+    </div>
+    <p class="footnote">GLM's llama.cpp pipeline lights one GPU at a time — a third of the power at a fifteenth of the speed. V4's 22 minutes includes 15 items at 128K depth.</p>
+  </section>
+
+  <!-- P7 · APC -->
+  <section class="mod">
+    <div class="eyebrow"><span class="no">P7 · FILL ONCE, ASK FOREVER</span><span class="crop">NETSPHERE FIELD PLATE 04</span></div>
+    <h2>Prefix cache · all three engines</h2>
+    <p class="lede">First read pays the full prefill; every later question against the same document is near-instant.
+    Document sizes differ per receipt (labeled) — the pattern is universal. Warm bars drawn to the same scale as their cold bar.</p>
+    <div class="chartwrap"><svg id="apc" viewBox="0 0 1000 225" role="img" aria-label="prefix cache collapse, three engines"></svg></div>
+  </section>
+
+  </div><!-- /frame -->
+
+  <div class="footer">
+    <span>TRUST IS MEASURED, NOT ASSUMED</span>
+    <a href="https://github.com/killy-netsphere/Netsphere-Eval">github.com/killy-netsphere/Netsphere-Eval</a>
+    <span>NETSPHERE · SOVEREIGN AI</span>
+  </div>
+</div>
+<div id="tip"></div>
+
+<script>
+const C={glm:"#b98d1f",v4:"#4a90d9",lag:"#c25e8a",ink:"#e6e4de",dim:"#8f8c84",mute:"#5c5a54",grid:"#242424",amber:"#d9a821",bg:"#0e0e0e",panel:"#141414"};
+const MODELS=[
+ {k:"glm",name:"GLM-5.2 Q3",c:C.glm},
+ {k:"v4",name:"DeepSeek V4",c:C.v4},
+ {k:"lag",name:"Laguna S 2.1",c:C.lag}
+];
+const V2={cats:["math_hard","grounded_v2","deepctx","agentic"],max:[20,30,15,15],
+ glm:[18,30,7,12],v4:[17,23,10,14],lag:[12,24,3,12]};
+const NS="http://www.w3.org/2000/svg";
+const tip=document.getElementById("tip");
+function el(p,t,a){const n=document.createElementNS(NS,t);for(const k in a)n.setAttribute(k,a[k]);p.appendChild(n);return n}
+function txt(p,x,y,s,a){const n=el(p,"text",Object.assign({x,y,fill:C.dim,"font-size":11},a));n.textContent=s;return n}
+function hover(n,s){n.addEventListener("mousemove",e=>{tip.textContent=s;tip.style.opacity=1;
+ tip.style.left=Math.min(e.clientX+14,innerWidth-280)+"px";tip.style.top=(e.clientY+14)+"px"});
+ n.addEventListener("mouseleave",()=>tip.style.opacity=0)}
+
+/* ---- P1 leaderboard ---- */
+(()=>{const s=document.getElementById("leader"),W=1000,H=300,L=46,B=44,T=16,gw=(W-L-30)/5;
+for(let v=0;v<=100;v+=25){const y=T+(H-T-B)*(1-v/100);
+ el(s,"line",{x1:L,x2:W-8,y1:y,y2:y,stroke:C.grid,"stroke-width":1});
+ txt(s,L-8,y+4,v+"%",{"text-anchor":"end","font-size":10,fill:C.mute})}
+const groups=[...V2.cats.map((c,i)=>({lab:c,max:V2.max[i],vals:MODELS.map(m=>V2[m.k][i])})),
+ {lab:"OVERALL",max:80,vals:[67,64,51]}];
+groups.forEach((g,gi)=>{const gx=L+18+gi*gw,bw=Math.min(34,(gw-46)/3);
+ g.vals.forEach((v,mi)=>{const h=(H-T-B)*(v/g.max),x=gx+mi*(bw+2),y=H-B-h;
+  const r=el(s,"rect",{x,y,width:bw,height:h,fill:MODELS[mi].c});
+  el(s,"rect",{x,y,width:bw,height:2,fill:"#000",opacity:.25});
+  txt(s,x+bw/2,y-6,g.max===80?String(g.vals[mi]):g.vals[mi],{fill:C.ink,"text-anchor":"middle","font-size":11,"font-weight":700});
+  hover(r,`${MODELS[mi].name}\n${g.lab}: ${v}/${g.max}  (${Math.round(100*v/g.max)}%)`)});
+ txt(s,gx+(bw*3)/2,H-B+18,g.lab,{"text-anchor":"middle","font-size":10.5,fill:gi===4?C.amber:C.dim,"letter-spacing":".08em"});
+ if(g.lab==="OVERALL")el(s,"line",{x1:gx-14,x2:gx-14,y1:T,y2:H-B,stroke:C.grid,"stroke-width":1});
+ txt(s,gx+(bw*3)/2,H-B+32,"n="+g.max,{"text-anchor":"middle","font-size":9.5,fill:C.mute})});
+})();
+
+/* ---- P2 cards ---- */
+(()=>{const data=[
+ {m:MODELS[0],role:"THE CONSCIENCE",meta:"753B MoE · UD-Q3_K_XL 343 GB · llama.cpp · reasoning MAX",
+  score:[67,80],cats:V2.glm,
+  sig:["ZERO FABRICATIONS","30/30 on the hallucination gauntlet — refused every trap, both suites. When it says NOT IN CONTEXT, it means it."],
+  t:[["BOARD PWR","694","W"],["MAX TEMP","40","°C"],["WALL","5.5","h"]]},
+ {m:MODELS[1],role:"THE ENGINE",meta:"284B MoE · W4A16 · TP=4 · spec-decode + prefix cache",
+  score:[64,80],cats:V2.v4,
+  sig:["DEPTH + SPEED","Best 128K retrieval (10/15, 4/5 mid-haystack) and the whole suite in 22 minutes — 15× faster than GLM."],
+  t:[["BOARD PWR","1090","W"],["MAX TEMP","56","°C"],["WALL","22","min"]]},
+ {m:MODELS[2],role:"THE ECONOMIST",meta:"118B MoE · 8B active · FP8 121 GB · stock vLLM, day one",
+  score:[51,80],cats:V2.lag,
+  sig:["1M ON TWO GPUs","Held 1M context on half the rig at 68 tok/s; matched the giants on the saturated v1 (90 vs 92/96 of 99)."],
+  t:[["BOARD PWR","991","W"],["MAX TEMP","63","°C"],["WALL","1.8","h"]]}];
+const wrap=document.getElementById("cards");
+data.forEach(d=>{const c=document.createElement("div");c.className="card";c.style.setProperty("--c",d.m.c);
+ c.innerHTML=`<div class="role">${d.role}</div><h3>${d.m.name}</h3><div class="meta">${d.meta}</div>
+ <div class="big">${d.score[0]}<small>/${d.score[1]}</small></div><div class="bigcap">V2 SCORED ITEMS</div>
+ ${V2.cats.map((cat,i)=>`<div class="catrow"><span class="lab">${cat}</span>
+   <span class="track"><span class="fill" style="width:${100*d.cats[i]/V2.max[i]}%"></span></span>
+   <span class="val">${d.cats[i]}/${V2.max[i]}</span></div>`).join("")}
+ <div class="sig"><em>SIGNATURE</em>${d.sig[1]}</div>
+ <div class="tstrip">${d.t.map(t=>`<div class="tcell"><div class="k">${t[0]}</div><div class="v">${t[1]}<small> ${t[2]}</small></div></div>`).join("")}</div>`;
+ wrap.appendChild(c)});
+})();
+
+/* ---- P3 depth curve ---- */
+(()=>{const s=document.getElementById("depth"),W=1000,H=340,L=52,R=140,B=42,T=18;
+const X=v=>L+(Math.log10(v)-Math.log10(4000))/(Math.log10(1100000)-Math.log10(4000))*(W-L-R);
+const Y=v=>T+(H-T-B)*(1-v/280);
+[50,100,150,200,250].forEach(v=>{el(s,"line",{x1:L,x2:W-R,y1:Y(v),y2:Y(v),stroke:C.grid});
+ txt(s,L-8,Y(v)+4,v,{"text-anchor":"end","font-size":10,fill:C.mute})});
+[[4096,"4K"],[16384,"16K"],[65536,"64K"],[262144,"262K"],[1048576,"1M"]].forEach(([v,lab])=>{
+ el(s,"line",{x1:X(v),x2:X(v),y1:T,y2:H-B,stroke:C.grid,"stroke-dasharray":"2 5"});
+ txt(s,X(v),H-B+18,lab,{"text-anchor":"middle","font-size":10,fill:C.mute})});
+txt(s,L-40,T-4,"tok/s",{"font-size":10,fill:C.mute});
+const SERIES=[
+ {m:MODELS[0],pts:[[4096,43.6],[16384,38.0],[65536,29.6],[131072,21.2],[262144,13.4]],end:"13 @262K ceiling",left:true},
+ {m:MODELS[1],pts:[[4096,255.6],[259000,96],[1036273,30.7]],end:"31 @1M"},
+ {m:MODELS[2],pts:[[6777,128.8],[53807,125.6],[131496,120.5],[250796,112.7],[525778,99.7],[982864,84.5]],end:"84.5 @1M"}];
+SERIES.forEach(sr=>{const d=sr.pts.map((p,i)=>(i?"L":"M")+X(p[0]).toFixed(1)+" "+Y(p[1]).toFixed(1)).join(" ");
+ el(s,"path",{d,fill:"none",stroke:sr.m.c,"stroke-width":2.2,"stroke-linejoin":"round"});
+ sr.pts.forEach(p=>{const dot=el(s,"circle",{cx:X(p[0]),cy:Y(p[1]),r:4.5,fill:sr.m.c,stroke:C.panel,"stroke-width":2});
+  hover(dot,`${sr.m.name}\n${p[0].toLocaleString()} tokens → ${p[1]} tok/s`)});
+ const last=sr.pts[sr.pts.length-1];
+ if(sr.left){txt(s,X(last[0])-10,Y(last[1])+19,sr.m.name.split(" ")[0]+" · "+sr.end,{fill:C.ink,"font-size":11,"font-weight":700,"text-anchor":"end"})}
+ else{txt(s,X(last[0])+10,Y(last[1])+4,sr.m.name.split(" ")[0]+" · "+sr.end,{fill:C.ink,"font-size":11,"font-weight":700})}});
+txt(s,X(430000),Y(115)-12,"−34% over 145× depth",{fill:C.dim,"font-size":10.5});
+})();
+
+/* ---- P4 needle ---- */
+(()=>{const s=document.getElementById("needle"),W=1000,H=270,L=46,B=58,T=16;
+const groups=[["START · 10% deep",[3,3,2]],["MIDDLE · 50% deep",[2,4,0]],["END · 90% deep",[2,3,1]]];
+for(let v=0;v<=5;v++){const y=T+(H-T-B)*(1-v/5);
+ el(s,"line",{x1:L,x2:W-8,y1:y,y2:y,stroke:C.grid});
+ txt(s,L-8,y+4,v,{"text-anchor":"end","font-size":10,fill:C.mute})}
+const gw=(W-L-30)/3;
+groups.forEach((g,gi)=>{const gx=L+40+gi*gw,bw=52;
+ g[1].forEach((v,mi)=>{const h=(H-T-B)*(v/5),x=gx+mi*(bw+3),y=H-B-h;
+  const r=el(s,"rect",{x,y,width:bw,height:Math.max(h,2),fill:MODELS[mi].c,opacity:v===0?.35:1});
+  txt(s,x+bw/2,v===0?H-B-8:y-7,v+"/5",{fill:v===0?C.dim:C.ink,"text-anchor":"middle","font-size":11.5,"font-weight":700});
+  hover(r,`${MODELS[mi].name}\n${g[0]}: ${v}/5 chains solved`)});
+ txt(s,gx+(52*3)/2,H-B+22,g[0],{"text-anchor":"middle","font-size":10.5,fill:C.dim,"letter-spacing":".08em"})});
+txt(s,W/2,H-8,"five 5-hop chains per position · superseded records · near-miss decoys · 128,016-token haystacks",{"text-anchor":"middle","font-size":9.5,fill:C.mute});
+})();
+
+/* ---- P6 wall + power ---- */
+function hbars(id,rows,unit,maxv,fmt){const s=document.getElementById(id),W=470,H=170,L=104,T=14,bh=34;
+rows.forEach((r,i)=>{const y=T+i*(bh+14),w=(W-L-84)*(r[1]/maxv);
+ txt(s,L-10,y+bh/2+4,r[0],{"text-anchor":"end","font-size":11,fill:C.dim});
+ const b=el(s,"rect",{x:L,y,width:Math.max(w,3),height:bh,fill:r[2]});
+ txt(s,L+Math.max(w,3)+10,y+bh/2+4,fmt(r[1]),{fill:C.ink,"font-size":12.5,"font-weight":700});
+ hover(b,`${r[0]}: ${fmt(r[1])} ${unit}`)});}
+hbars("wall",[["GLM Q3",330,C.glm],["V4",22,C.v4],["Laguna",108,C.lag]],"",330,v=>v>=60?(v/60).toFixed(1)+" h":v+" min");
+hbars("power",[["GLM Q3",694,C.glm],["V4",1090,C.v4],["Laguna",991,C.lag]],"W",1100,v=>v+" W");
+
+/* ---- P7 APC · three engines ---- */
+(()=>{const s=document.getElementById("apc"),W=1000,T=18,rh=66,BX=250,BW=W-470;
+const rows=[
+ {m:MODELS[0],doc:"38K doc · llama.cpp slot cache",cold:57.5,warm:2.15,x:"27×"},
+ {m:MODELS[1],doc:"878K doc · vLLM prefix cache",cold:310.8,warm:4.79,x:"65×"},
+ {m:MODELS[2],doc:"983K doc · vLLM APC · 2 GPUs",cold:261.4,warm:1.52,x:"172×"}];
+rows.forEach((r,i)=>{const y=T+i*rh;
+ txt(s,10,y+13,r.m.name,{fill:C.ink,"font-size":12.5,"font-weight":700});
+ txt(s,10,y+29,r.doc,{fill:C.mute,"font-size":9.5});
+ const cb=el(s,"rect",{x:BX,y:y+2,width:BW,height:14,fill:"#3a3a3a"});
+ txt(s,BX+BW+8,y+13,r.cold+" s cold",{fill:C.dim,"font-size":10.5});
+ const ww=Math.max(BW*(r.warm/r.cold),4);
+ const wb=el(s,"rect",{x:BX,y:y+22,width:ww,height:14,fill:r.m.c});
+ txt(s,BX+ww+8,y+33,r.warm+" s warm",{fill:C.ink,"font-size":10.5,"font-weight":700});
+ txt(s,W-14,y+29,r.x,{fill:r.m.c,"font-size":26,"font-weight":800,"text-anchor":"end"});
+ hover(cb,`${r.m.name}\ncold · first read: ${r.cold} s`);
+ hover(wb,`${r.m.name}\nwarm · every read after: ${r.warm} s (${r.x} faster)`)});
+})();
+</script>
