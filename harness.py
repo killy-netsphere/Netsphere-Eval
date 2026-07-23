@@ -84,12 +84,12 @@ class Endpoint:
         ch = resp.get("choices", [{}])[0]
         msg = ch.get("message", {})
         content = msg.get("content") or ""
-        reasoning = msg.get("reasoning_content") or ""
+        reasoning = msg.get("reasoning_content") or msg.get("reasoning") or ""
         if not reasoning:
             inl = re.findall(r"<think>(.*?)</think>", content, re.DOTALL | re.IGNORECASE)
             reasoning = "\n".join(inl).strip()
         if not strip_think(content):
-            content = msg.get("reasoning_content") or content
+            content = msg.get("reasoning_content") or msg.get("reasoning") or content
         usage = resp.get("usage", {}) or {}
         return {"content": strip_think(content),
                 "raw_content": content,
