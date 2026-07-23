@@ -1,0 +1,9 @@
+[
+  {"name": "glm52-q3",  "url": "http://127.0.0.1:8080/v1", "model": "glm-5.2",
+   "temp": 0, "extra": {}},
+  {"name": "v4-flash",  "url": "http://127.0.0.1:8000/v1", "model": "deepseek-v4-flash",
+   "temp": 0, "extra": {}},
+  {"name": "delete-me-or-add-a-third", "url": "http://127.0.0.1:8001/v1",
+   "model": "some-model", "temp": 0, "key": null,
+   "extra": {"chat_template_kwargs": {"enable_thinking": false}}}
+]
