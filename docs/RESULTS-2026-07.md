@@ -21,8 +21,9 @@ TP=4, fp8 KV, speculative decoding, prefix caching) · Laguna S 2.1 FP8
   — V4 fabricated on seven plausible-but-absent traps where GLM refused;
   never the reverse. The first statistically significant quality separation
   either suite has produced between these two.
-- GLM vs Laguna — overall 18-2, **p = 0.0004**. grounded_v2 6-0 (p = 0.0312);
-  math_hard 7-1 (p = 0.070).
+- GLM vs Laguna — overall 18-2, **p = 0.0004** (corrected run). Category-level:
+  grounded_v2 5-0, deepctx 5-0, math_hard 7-1 — each individually marginal
+  (p = 0.06-0.07); the overall separation is what survives.
 - V4 vs Laguna — deepctx 9-2 (p = 0.065); grounded_v2 dead even (6-7).
 
 **deepctx accuracy by needle depth (start / middle / end of a 128K haystack):**
@@ -38,9 +39,21 @@ converging. V4's grounded misses are fabrications under trap pressure.
 
 ## v1 (99 paired items — the saturated suite)
 
-V4 96/99 · GLM 92/99 · Laguna 90/99 — all pairwise p > 0.2. Three very
+V4 96/99 · GLM 92/99 · Laguna 92/99 (corrected) — all pairwise p > 0.2. Three very
 different architectures, statistically indistinguishable: v1 is a regression
 floor, not a discriminator. This is why v2 exists.
+
+## Correction (2026-07-23, same day)
+
+A transport bug was found by a fourth-model run on another node: some vLLM
+builds emit the reasoning field as `reasoning`, not `reasoning_content`, so
+truncated items from those engines were silently scored as empty. Fixed in
+commit `d280f16`; of the models above only Laguna was affected. Full re-run
+under the fixed harness: **v2 unchanged (51/80)** — its truncations cut off
+mid-search with no salvageable answer; **v1 +3 (105 -> 108)** — shallow
+truncations held rescuable answers. Tables above show corrected numbers.
+The affected model's score could only have been *under*-counted by this bug,
+never inflated.
 
 ## Serving envelope highlights (same node)
 

@@ -2,7 +2,7 @@
 <style>
 :root{--bg:#0e0e0e;--panel:#141414;--panel2:#181818;--line:#2e2e2e;--line2:#232323;
 --ink:#e6e4de;--dim:#8f8c84;--mute:#5c5a54;--amber:#d9a821;--amber-dim:#8a6b15;
---glm:#b98d1f;--v4:#4a90d9;--lag:#c25e8a;
+--glm:#b98d1f;--v4:#4a90d9;--lag:#c25e8a;--qwen:#7d8f2a;
 --mono:ui-monospace,"Cascadia Mono","JetBrains Mono",Consolas,Menlo,monospace}
 *{box-sizing:border-box;margin:0;padding:0}
 html{background:var(--bg)}
@@ -68,8 +68,8 @@ font:11.5px/1.5 var(--mono);padding:7px 10px;z-index:9;opacity:0;transition:opac
   <section class="mod">
     <div class="eyebrow"><span class="no">M1 · THE RECORD</span><span class="crop">NETSPHERE FIELD PLATE 07</span></div>
     <h2>Verdict numbers · day one</h2>
-    <p class="lede">Weights released the day before. Served on stock vLLM 0.25.1, first try. Same items as the giants.</p>
-<div class="heroes"><div class="hcell"><div class="k">V2 · 80 HARD ITEMS</div><div class="v">51<small>/80</small></div><div class="n">the hard suite finds the 8B-active ceiling</div></div><div class="hcell"><div class="k">V1 · SATURATED SUITE</div><div class="v">105<small>/115</small></div><div class="n">statistically level with the giants</div></div><div class="hcell"><div class="k">1M CONTEXT</div><div class="v">2<small> GPUs</small></div><div class="n">1.9M-token pool on half the rig</div></div><div class="hcell"><div class="k">APC RE-READ · 983K</div><div class="v">1.52<small> s</small></div><div class="n">first read 261 s · 172×</div></div></div>
+    <p class="lede">Weights released the day before. Served on stock vLLM 0.25.1, first try. Same items as the giants. All numbers from the corrected re-run after the reasoning-field harness fix (repo commit d280f16); v2 was unchanged by the fix, v1 gained 3 rescued truncations.</p>
+<div class="heroes"><div class="hcell"><div class="k">V2 · 80 HARD ITEMS</div><div class="v">51<small>/80</small></div><div class="n">the hard suite finds the 8B-active ceiling</div></div><div class="hcell"><div class="k">V1 · SATURATED SUITE</div><div class="v">108<small>/115</small></div><div class="n">ties the 753B exactly — corrected run, patched harness</div></div><div class="hcell"><div class="k">1M CONTEXT</div><div class="v">2<small> GPUs</small></div><div class="n">1.9M-token pool on half the rig</div></div><div class="hcell"><div class="k">APC RE-READ · 983K</div><div class="v">1.52<small> s</small></div><div class="n">first read 261 s · 172×</div></div></div>
   </section>
   <section class="mod">
     <div class="eyebrow"><span class="no">M2 · CATEGORY BREAKDOWN</span><span class="crop">NETSPHERE FIELD PLATE 07</span></div>
