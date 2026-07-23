@@ -47,6 +47,23 @@ separations that v1 could not see — including one model fabricating facts on
 7 trap items where another refused all 30, exact two-sided McNemar p = 0.0156.
 Full results: [`docs/RESULTS-2026-07.md`](docs/RESULTS-2026-07.md).
 
+## The nonsense round (unscored, on purpose)
+
+`tasks/nonsense.jsonl` is twenty questions with no calculable or correct
+answer — *"What color is Tuesday's opinion of jazz?"*, *"How much does the
+inside of a circle weigh on a Sunday?"*, and a five-part saga in which Mike
+Tyson keeps punching you near his pigeons. It never touches the leaderboard,
+totals, or statistics. Every run compiles all models' replies side by side
+into `results/<run>/nonsense_showcase.md` — pure entertainment, and
+incidentally the clearest window you'll get into how each model handles a
+category error: play along, over-analyze, refuse, or get poetic.
+
+Field note from our runs: a 753B model at maximum reasoning effort once spent
+**14 minutes and ~30,000 thinking tokens** on the circle question before the
+token budget ended the contemplation. Unscored does not mean uninformative —
+give-up behavior (or its absence) is a real routing consideration, and this is
+where you see it raw.
+
 ## The integrity policy (why some sets are withheld)
 
 **Publishing an exam burns the exam.** Static probe items that appear in a
