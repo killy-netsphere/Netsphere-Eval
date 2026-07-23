@@ -62,14 +62,14 @@ font:11.5px/1.5 var(--mono);padding:7px 10px;z-index:9;opacity:0;transition:opac
   <div class="masthead">
     <div class="role">THE FLOOR · 27B DENSE · INT4 · FP8-KV · ONE CARD</div>
     <h1>Qwen3.6-27B</h1>
-    <div class="sub">The fleet's always-on fallback brain, benchmarked on its own 32 GB card at a 165 W power cap — without borrowing a single cycle from the big box. It tied the 753B on the saturated suite, swept the hallucination gauntlet, and landed one point behind the production brain on the hard one. The floor is higher than anyone guessed.</div>
+    <div class="sub">The fleet's always-on fallback brain, benchmarked on its own RTX PRO 4500 Blackwell Server Edition (32 GB) at a 165 W power cap — without borrowing a single cycle from the big box. It tied the 753B on the saturated suite, swept the hallucination gauntlet, and landed one point behind the production brain on the hard one. The floor is higher than anyone guessed.</div>
   </div>
   <div class="frame">
   <section class="mod">
     <div class="eyebrow"><span class="no">M1 · THE RECORD</span><span class="crop">NETSPHERE FIELD PLATE 08</span></div>
     <h2>Verdict numbers · one card</h2>
     <p class="lede">Run on the always-on utility node while the big box served a different model entirely. Same frozen items, same seed.</p>
-<div class="heroes"><div class="hcell"><div class="k">V2 · 80 HARD ITEMS</div><div class="v">63<small>/80</small></div><div class="n">one behind the production brain · formal tie with GLM (p=0.50)</div></div><div class="hcell"><div class="k">HALLUCINATION GAUNTLET</div><div class="v">30<small>/30</small></div><div class="n">zero discordant vs the 753B conscience</div></div><div class="hcell"><div class="k">V1 · SATURATED SUITE</div><div class="v">108<small>/115</small></div><div class="n">ties the 753B's total exactly</div></div><div class="hcell"><div class="k">HARDWARE</div><div class="v">32<small> GB</small></div><div class="n">single card · 165 W power cap · always-on</div></div></div>
+<div class="heroes"><div class="hcell"><div class="k">V2 · 80 HARD ITEMS</div><div class="v">63<small>/80</small></div><div class="n">one behind the production brain · formal tie with GLM (p=0.50)</div></div><div class="hcell"><div class="k">HALLUCINATION GAUNTLET</div><div class="v">30<small>/30</small></div><div class="n">zero discordant vs the 753B conscience</div></div><div class="hcell"><div class="k">V1 · SATURATED SUITE</div><div class="v">108<small>/115</small></div><div class="n">ties the 753B's total exactly</div></div><div class="hcell"><div class="k">HARDWARE</div><div class="v">32<small> GB</small></div><div class="n">RTX PRO 4500 Blackwell Server Edition · 165 W cap · always-on</div></div></div>
   </section>
   <section class="mod">
     <div class="eyebrow"><span class="no">M2 · CATEGORY BREAKDOWN</span><span class="crop">NETSPHERE FIELD PLATE 08</span></div>
@@ -87,7 +87,7 @@ font:11.5px/1.5 var(--mono);padding:7px 10px;z-index:9;opacity:0;transition:opac
   <section class="mod">
     <div class="eyebrow"><span class="no">M3 · THE LADDER</span><span class="crop">NETSPHERE FIELD PLATE 08</span></div>
     <h2>Speed vs context depth · 258K native</h2>
-    <p class="lede">One 32 GB RTX PRO 4500 (800 GB/s), int4 weights, FP8 KV, MTP speculation, prefix caching on.</p>
+    <p class="lede">One RTX PRO 4500 Blackwell Server Edition (32 GB, 800 GB/s), int4 weights, FP8 KV, MTP speculation, prefix caching on.</p>
 <div class="duo"><div><p class="lede">DECODE · tok/s</p><div class="chartwrap"><svg id="dec" viewBox="0 0 490 280"></svg></div></div><div><p class="lede">TIME TO FIRST TOKEN · seconds (log)</p><div class="chartwrap"><svg id="ttft" viewBox="0 0 490 280"></svg></div></div></div><p class="footnote">4K decode rung depressed by a synthetic-dataset artifact — realistic-prompt measurement at the same depth: 60.2 tok/s. Prefix cache: re-reading a 189K document collapses 202 s → 4.4 s (46×).</p>
   </section>
   <section class="mod">
