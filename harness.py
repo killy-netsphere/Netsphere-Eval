@@ -20,6 +20,8 @@ import argparse, hashlib, json, math, os, random, re, statistics, string, subpro
 import shutil, sys, tempfile, time, urllib.request, urllib.parse
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
+from typing import Any
+from collections.abc import Callable
 
 HERE = Path(__file__).parent
 FINAL_RE = re.compile(r"FINAL ANSWER\s*:\s*(.+)", re.IGNORECASE)
@@ -29,7 +31,7 @@ THINK_RE = re.compile(r"<think>.*?</think>", re.DOTALL | re.IGNORECASE)
 # HTTP / model client
 # ---------------------------------------------------------------------------
 
-def http_post_json(url, payload, headers, timeout):
+def http_post_json(url: str, payload: dict, headers: dict, timeout: int) -> dict:
     data = json.dumps(payload).encode()
     req = urllib.request.Request(url, data=data, method="POST",
                                  headers={"Content-Type": "application/json", **headers})
@@ -37,13 +39,13 @@ def http_post_json(url, payload, headers, timeout):
         return json.loads(r.read().decode())
 
 
-def http_get_json(url, timeout=60):
+def http_get_json(url: str, timeout: int = 60) -> dict:
     req = urllib.request.Request(url, headers={"Accept": "application/json"})
     with urllib.request.urlopen(req, timeout=timeout) as r:
         return json.loads(r.read().decode())
 
 
-def strip_think(text):
+def strip_think(text: str | None) -> str:
     if not text:
         return ""
     t = THINK_RE.sub("", text)
@@ -53,7 +55,7 @@ def strip_think(text):
     return t.strip()
 
 
-def strip_fences(text):
+def strip_fences(text: str) -> str:
     t = text.strip()
     m = re.match(r"^```[a-zA-Z0-9_-]*\s*\n(.*?)\n?```$", t, re.DOTALL)
     return m.group(1).strip() if m else t
@@ -129,7 +131,7 @@ class Endpoint:
 # Answer matching (math / longctx)
 # ---------------------------------------------------------------------------
 
-def _to_number(s):
+def _to_number(s: str) -> float | None:
     s = s.strip().rstrip(".").replace("$", "").replace(",", "").replace(" ", "")
     m = re.fullmatch(r"(-?\d+)\s*/\s*(-?\d+)", s)
     if m:
@@ -142,7 +144,7 @@ def _to_number(s):
         return None
 
 
-def answers_match(got, gold):
+def answers_match(got: str, gold: str | int) -> bool:
     g1, g2 = got.strip(), str(gold).strip()
     g1 = re.sub(r"^[\*\s`\"']+|[\*\s`\"'.]+$", "", g1)
     if g1.casefold() == g2.casefold():
@@ -155,7 +157,7 @@ def answers_match(got, gold):
     return re.sub(r"\s+", "", g1).casefold() == re.sub(r"\s+", "", g2).casefold()
 
 
-def extract_final(text):
+def extract_final(text: str | None) -> str | None:
     hits = FINAL_RE.findall(text)
     return hits[-1].strip() if hits else None
 
@@ -164,7 +166,7 @@ def extract_final(text):
 # Scorers
 # ---------------------------------------------------------------------------
 
-def score_math(task, r):
+def score_math(task: dict, r: dict) -> tuple:
     if "_mock_pass" in r:
         return r["_mock_pass"], "mock"
     ans = extract_final(r["content"])
@@ -175,18 +177,18 @@ def score_math(task, r):
     return ok, ("" if ok else f"got={ans!r} want={golds!r}")
 
 
-def score_bizarre(task, r):
+def score_bizarre(task: dict, r: dict) -> tuple:
     if "checks" in task:
         return score_instruct(task, r)
     return score_math(task, r)
 
 
-def extract_code(text):
+def extract_code(text: str) -> str:
     blocks = re.findall(r"```(?:python|py)?\s*\n(.*?)```", text, re.DOTALL)
     return blocks[-1] if blocks else text
 
 
-def score_code(task, r):
+def score_code(task: dict, r: dict) -> tuple:
     if "_mock_pass" in r:
         return r["_mock_pass"], "mock"
     code = extract_code(r["content"])
@@ -240,7 +242,7 @@ def _typecheck(v, tname):
     return False
 
 
-def score_json(task, r):
+def score_json(task: dict, r: dict) -> tuple:
     if "_mock_pass" in r:
         return r["_mock_pass"], "mock"
     text = strip_fences(r["content"])
@@ -273,7 +275,7 @@ def score_json(task, r):
     return True, ""
 
 
-def score_instruct(task, r):
+def score_instruct(task: dict, r: dict) -> tuple:
     if "_mock_pass" in r:
         return r["_mock_pass"], "mock"
     text = r["content"].strip()
@@ -343,7 +345,7 @@ PROJ_NOUN = ["Falcon","Lantern","Compass","Anvil","Beacon","Harbor","Summit",
              "Glacier","Meridian","Foundry","Citadel","Orchard"]
 
 
-def gen_longctx(seed, n_items, ctx_tokens):
+def gen_longctx(seed: int, n_items: int, ctx_tokens: int) -> list[dict]:
     rng = random.Random(seed)
     names = [f"{f} {l}" for f in FIRST for l in LAST]
     rng.shuffle(names)
@@ -503,12 +505,12 @@ def judge_absolute(judge_ep, ctx, q, a, gold_points):
 # Runner
 # ---------------------------------------------------------------------------
 
-def load_jsonl(path):
+def load_jsonl(path: Path | str) -> list[dict]:
     with open(path) as f:
         return [json.loads(l) for l in f if l.strip()]
 
 
-def score_none(task, r):
+def score_none(task: dict, r: dict) -> tuple:
     return None, "unscored"
 
 
@@ -825,7 +827,7 @@ THINK_LEVELS = {"low": "on", "medium": "on", "med": "on", "minimal": "on",
 THINK_MAXTOK = {"on": 16384, "high": 24576, "max": 32768}
 
 
-def detect_thinking(extra):
+def detect_thinking(extra: dict) -> tuple:
     """Walk a model's extra request body for reasoning knobs.
     Returns (level, budget): level in {None,'off','on','high','max'}."""
     level, budget = None, 0
