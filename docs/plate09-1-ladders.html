@@ -35,6 +35,11 @@ svg text{font-family:var(--mono)}
 .hcell .v{font-variant-numeric:tabular-nums;font-size:30px;font-weight:800;margin-top:4px;color:var(--c)}
 .hcell .v small{font-size:13px;color:var(--dim);font-weight:600}
 .hcell .n{color:var(--dim);font-size:10.5px;margin-top:4px}
+.rank{display:flex;justify-content:space-between;align-items:baseline;padding:5px 0;border-bottom:1px dotted var(--line2)}
+.rank:last-child{border-bottom:none}
+.rank .rm{font-size:10.5px;letter-spacing:.12em}
+.rank .rm i{font-style:normal;color:var(--mute);font-size:9.5px}
+.rank .rv{font-variant-numeric:tabular-nums;font-size:21px;font-weight:800}
 .legend{display:flex;gap:22px;flex-wrap:wrap;margin:2px 0 10px;font-size:11.5px;color:var(--dim)}
 .legend b{color:var(--ink)}
 .swatch{display:inline-block;width:10px;height:10px;margin-right:7px;vertical-align:-1px}
@@ -66,10 +71,22 @@ font:11.5px/1.5 var(--mono);padding:7px 10px;z-index:9;opacity:0;transition:opac
 <div><p class="lede">TIME TO FIRST TOKEN · seconds (log)</p><div class="chartwrap"><svg id="ttft" viewBox="0 0 490 300"></svg></div></div>
 </div>
 <div class="heroes" style="margin-top:14px">
-<div class="hcell" style="--c:var(--hyb)"><div class="k">DECODE @ 254K</div><div class="v">98<small> tok/s</small></div><div class="n">hybrid · vs 67 EXL3 · vs 13 Q3</div></div>
-<div class="hcell" style="--c:var(--exl)"><div class="k">FIRST TOKEN @ 254K</div><div class="v">129<small> s</small></div><div class="n">EXL3 · vs 140 hybrid · Q3 ~10 min (derived)</div></div>
-<div class="hcell" style="--c:var(--exl)"><div class="k">PREFILL · FLAT TO 261K</div><div class="v">2.0–2.3K<small> tok/s</small></div><div class="n">EXL3 · hybrid 1.82K · Q3 0.43K</div></div>
-<div class="hcell"><div class="k">DEPTH TAX · ENGINE RATE · 1K → 261K</div><div class="v">&lt;5<small> %</small></div><div class="n">both vLLM bodies (21.1→20.2 · 19.1→18.3 steps/s) · token-rate wobble is content variance, not depth — 254K runs faster than 107K on the amber line · Q3 −69%</div></div>
+<div class="hcell"><div class="k">DECODE @ 254K · tok/s</div>
+<div class="rank"><span class="rm" style="color:var(--hyb)">NF3 HYBRID</span><span class="rv" style="color:var(--hyb)">98</span></div>
+<div class="rank"><span class="rm" style="color:var(--exl)">EXL3-TR3</span><span class="rv" style="color:var(--exl)">67</span></div>
+<div class="rank"><span class="rm" style="color:var(--glm)">Q3 GGUF</span><span class="rv" style="color:var(--glm)">13</span></div></div>
+<div class="hcell"><div class="k">FIRST TOKEN @ 254K · seconds</div>
+<div class="rank"><span class="rm" style="color:var(--exl)">EXL3-TR3</span><span class="rv" style="color:var(--exl)">129</span></div>
+<div class="rank"><span class="rm" style="color:var(--hyb)">NF3 HYBRID</span><span class="rv" style="color:var(--hyb)">140</span></div>
+<div class="rank"><span class="rm" style="color:var(--glm)">Q3 GGUF <i>derived</i></span><span class="rv" style="color:var(--glm)">≈590</span></div></div>
+<div class="hcell"><div class="k">PREFILL · tok/s · FLAT TO 261K</div>
+<div class="rank"><span class="rm" style="color:var(--exl)">EXL3-TR3</span><span class="rv" style="color:var(--exl)">2.0–2.3K</span></div>
+<div class="rank"><span class="rm" style="color:var(--hyb)">NF3 HYBRID</span><span class="rv" style="color:var(--hyb)">1.8K</span></div>
+<div class="rank"><span class="rm" style="color:var(--glm)">Q3 GGUF</span><span class="rv" style="color:var(--glm)">0.43K</span></div></div>
+<div class="hcell"><div class="k">DEPTH TAX · ENGINE RATE · 1K→261K</div>
+<div class="rank"><span class="rm" style="color:var(--exl)">EXL3-TR3</span><span class="rv" style="color:var(--exl)">−4%</span></div>
+<div class="rank"><span class="rm" style="color:var(--hyb)">NF3 HYBRID</span><span class="rv" style="color:var(--hyb)">−4%</span></div>
+<div class="rank"><span class="rm" style="color:var(--glm)">Q3 GGUF</span><span class="rv" style="color:var(--glm)">−69%</span></div></div>
 </div>
 <p class="footnote">Method: streaming, temp 0, ignore_eos, 512-token completions, N=1 per rung (amber 261K point = mean of N=4: 75.6 / 91.0 / 95.0 / 102.0 — re-measured after the first run landed low on draft-acceptance variance), depths read back from usage.prompt_tokens. Decode = completion tokens over the chunk-timed window (MTP acceptance folded in — amber/olive wobble is content variance, engine-step rates are flat at ~20/s and ~18/s). TTFT measured for both vLLM bodies; Q3 TTFT derived from measured prefill rates (revD §6.2). Q3's curve is the ENGINE (layer-pipelined llama.cpp, one GPU active at a time), not the quant — same brain, different body. Receipts: private registry, runs of 2026-07-23/24, seed 7.</p>
   </section>
