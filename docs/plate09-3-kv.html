@@ -45,6 +45,20 @@ h2{font-size:clamp(19px,2.8vw,26px);font-weight:800;text-transform:uppercase;mar
 .gridhost{position:relative;margin-top:26px}
 .sig{border-left:2px solid var(--c);padding:10px 14px;margin:10px 0;font-size:12.5px}
 .sig em{color:var(--dim);font-style:normal;display:block;font-size:10.5px;letter-spacing:.14em;margin-bottom:4px}
+.audit{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line2);border:1px solid var(--line2);margin:10px 0}
+.arow{display:grid;grid-template-columns:minmax(150px,1.2fr) minmax(120px,1fr) 130px;gap:12px;align-items:center;background:var(--panel2);padding:12px 16px}
+@media(max-width:640px){.arow{grid-template-columns:1fr;gap:4px}}
+.arow .ac{color:var(--dim);font-size:11.5px}
+.arow .ac b{color:var(--ink);display:block;font-size:12.5px}
+.arow .am{font-variant-numeric:tabular-nums;font-weight:800;font-size:17px}
+.arow .am small{display:block;font-size:9.5px;color:var(--mute);font-weight:400;letter-spacing:.1em}
+.stamp{justify-self:end;font-size:10px;font-weight:800;letter-spacing:.18em;padding:5px 10px;border:1.5px solid;text-align:center}
+.stamp.ok{color:#8fae3a;border-color:#8fae3a}
+.stamp.warn{color:var(--amber);border-color:var(--amber)}
+.stamp.info{color:var(--dim);border-color:var(--dim)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
+.chip{border:1px solid var(--line);background:var(--panel2);padding:8px 12px;font-size:11px}
+.chip b{display:block;font-size:13px;font-weight:800;margin-bottom:2px}
 .footnote{color:var(--mute);font-size:10.5px;margin-top:10px;max-width:92ch}
 .footer{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;border-top:1px solid var(--line);margin-top:8px;padding:16px 2px 4px;color:var(--dim);font-size:11px;letter-spacing:.14em}
 .footer a{color:var(--amber);text-decoration:none}
@@ -84,9 +98,21 @@ h2{font-size:clamp(19px,2.8vw,26px);font-weight:800;text-transform:uppercase;mar
 <div class="hcell" style="--c:var(--hyb)"><div class="k">HYBRID POOL · DEEP CONCURRENCY</div><div class="v">c=1<small> only</small></div><div class="n">3×100K exhausts 359K pool → preemption thrash, aggregate −5×</div></div>
 <div class="hcell"><div class="k">BYTES PER TOKEN · 16 → 8 → 4</div><div class="v">½ × ½</div><div class="n">each halving ≈ doubles the pool — same VRAM</div></div>
 </div>
-<div class="sig" style="--c:var(--exl)"><em>THE CLAIMS AUDIT</em>The EXL3 recipe ships pinned to exactly one window (262,144) — conservative. The community "500K KV" claim turned out to be the 2048-block configuration: real, measured here at 524,288, full speed. Removing the pin entirely: 804,864 tokens, then validated the hard way — probes, a 254K needle retrieval, and three simultaneous 250K requests with zero preemption events in the server log. The pin is caution, not necessity. (Sero's 422K pool claim measured 359K on our rig — ordinary cross-host VRAM accounting drift, not inflation. Both authors' claims survived audit within honest tolerances.)</div>
-<div class="sig"><em>WHY 4-BIT KV ISN'T A QUALITY TRADE HERE</em>Quantizing the KV cache perturbs what the model remembers about every token it has read — the obvious fear is fuzzy recall at depth. Measured: the 4-bit body posts the BEST deep-context scores on this instrument and exact needle retrieval at 254K. GLM's MLA architecture stores a compact latent per token, and the nvfp4_ds_mla format block-scales it specifically; at least for this model family, half the memory per token costs nothing we can detect. The sibling investigation (qwen, 8-bit vs 16-bit KV) reached the same verdict one rung up the ladder — and there, 16-bit could not even SERVE 128K on the card that 8-bit serves it flat.</div>
-<p class="footnote">All pools read from vLLM boot logs (kv_cache_utils GPU KV cache size) on 4× RTX PRO 6000 Blackwell 96 GB. Stress method: vllm bench serve, 3 prompts × ~250K random tokens, max-concurrency 3, 128-token outputs; server log audited for preempt/abort/OOM after the run (0 hits). Deep-concurrency under-provisioned pools measured separately (100K × c=1/2/3 on the hybrid: per-stream 48.2 → 8.1 → 3.2 tok/s). Q3/lcpp row is its measured served ceiling (163,840 unified slot cache), not an equivalent pool architecture. Receipts: private registry, 2026-07-24.</p>
+<h2 style="margin-top:18px">The claims audit</h2>
+<p class="lede">Every capacity number anyone published about these recipes, checked against this rig.</p>
+<div class="audit">
+<div class="arow"><span class="ac">Community post<b>"500K KV cache"</b></span><span class="am" style="color:var(--exl)">524,288<small>MEASURED · 2048-BLOCK CONFIG · FULL SPEED</small></span><span class="stamp ok">CONFIRMED</span></div>
+<div class="arow"><span class="ac">EXL3 shipped default<b>pool pinned to 262,144</b></span><span class="am" style="color:var(--exl)">804,864<small>MEASURED UNPINNED · STRESS-TESTED CLEAN</small></span><span class="stamp info">CONSERVATIVE ×3</span></div>
+<div class="arow"><span class="ac">Sero's model card<b>"422,656-token pool"</b></span><span class="am" style="color:var(--hyb)">359,424<small>MEASURED · CROSS-HOST VRAM DRIFT, NOT INFLATION</small></span><span class="stamp warn">DRIFT · CLEARED</span></div>
+</div>
+<h2 style="margin-top:18px">Does 4-bit memory forget?</h2>
+<div class="chips">
+<div class="chip" style="border-color:var(--exl)"><b style="color:var(--exl)">10/15 deepctx</b>fleet record — read through 4-bit KV</div>
+<div class="chip" style="border-color:var(--exl)"><b style="color:var(--exl)">EXACT @ 254K</b>planted needle, 92% depth, verbatim</div>
+<div class="chip" style="border-color:var(--exl)"><b style="color:var(--exl)">0 preempts</b>3 × 250K concurrent, server log audited</div>
+<div class="chip"><b>16-bit cautionary tale</b>on the sibling rig, 16-bit KV couldn't serve 128K at all — 8-bit serves it flat</div>
+</div>
+<p class="footnote">Pools read from vLLM boot logs on 4× RTX PRO 6000 Blackwell 96 GB. Stress: 3 × ~250K prompts, concurrency 3, log audited for preempt/abort/OOM (0 hits). Hybrid deep-concurrency measured separately: 100K × c=1/2/3 → 48.2 / 8.1 / 3.2 tok/s per stream (pool exhaustion → preemption). Q3/lcpp row = measured served ceiling, different cache architecture. Receipts: private registry, 2026-07-24.</p>
   </section>
   </div>
   <div class="footer">
