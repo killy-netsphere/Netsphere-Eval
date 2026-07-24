@@ -1,0 +1,97 @@
+<title>NETSPHERE — Field Plate 09-3 · The Memory Pool</title>
+<style>
+:root{--bg:#0e0e0e;--panel:#141414;--panel2:#181818;--line:#2e2e2e;--line2:#232323;
+--ink:#e6e4de;--dim:#8f8c84;--mute:#5c5a54;--amber:#d9a821;--amber-dim:#8a6b15;
+--glm:#b98d1f;--hyb:#d9a821;--exl:#7d8f2a;
+--mono:ui-monospace,"Cascadia Mono","JetBrains Mono",Consolas,Menlo,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--bg)}
+body{font-family:var(--mono);color:var(--ink);background:var(--bg);font-size:14px;line-height:1.55;padding:28px 18px 40px}
+.plate{max-width:1060px;margin:0 auto}
+.brandbar{display:flex;justify-content:space-between;align-items:center;padding:2px 2px 14px}
+.brand{font-weight:700;letter-spacing:.55em;font-size:13px}
+.brand .dot{color:var(--amber);letter-spacing:0}
+.plateno{color:var(--dim);font-size:11px;letter-spacing:.18em}
+.masthead{padding:6px 2px 0}
+.role{color:var(--c);letter-spacing:.34em;font-size:13px;text-transform:uppercase}
+h1{font-size:clamp(38px,6.4vw,64px);font-weight:800;letter-spacing:-.01em;line-height:.95;text-transform:uppercase;margin-top:6px}
+.sub{color:var(--dim);font-size:12.5px;max-width:78ch;margin-top:10px}
+.frame{border:1px solid var(--line);margin-top:20px;position:relative;padding:26px 26px 8px}
+.frame::before,.frame::after{content:"";position:absolute;width:14px;height:14px;border-color:var(--c);border-style:solid}
+.frame::before{top:-1px;left:-1px;border-width:2px 0 0 2px}
+.frame::after{bottom:-1px;right:-1px;border-width:0 2px 2px 0}
+.mod{border:1px solid var(--line);background:var(--panel);margin:0 0 26px;padding:20px 22px 18px}
+.eyebrow{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}
+.eyebrow .no{color:var(--c);font-size:11px;letter-spacing:.25em}
+.eyebrow .crop{color:var(--mute);font-size:10px;letter-spacing:.14em}
+h2{font-size:clamp(19px,2.8vw,26px);font-weight:800;text-transform:uppercase;margin-bottom:2px}
+.lede{color:var(--dim);font-size:12px;max-width:82ch;margin-bottom:14px}
+.heroes{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line2);border:1px solid var(--line2)}
+.hcell{background:var(--panel2);padding:16px 18px}
+.hcell .k{color:var(--mute);font-size:10px;letter-spacing:.2em;min-height:28px}
+.hcell .v{font-variant-numeric:tabular-nums;font-size:30px;font-weight:800;margin-top:4px;color:var(--c)}
+.hcell .v small{font-size:13px;color:var(--dim);font-weight:600}
+.hcell .n{color:var(--dim);font-size:10.5px;margin-top:4px}
+.pool{margin:16px 0 4px;position:relative}
+.prow{display:grid;grid-template-columns:150px 1fr 120px;gap:12px;align-items:center;margin:9px 0;font-size:11px}
+.prow .pl{letter-spacing:.1em;line-height:1.35}
+.prow .pl small{display:block;color:var(--mute);font-size:9.5px;letter-spacing:.06em}
+.prow .pv{text-align:right;font-variant-numeric:tabular-nums;font-weight:800;font-size:13px}
+.ptrack{height:13px;background:#1f1f1f;position:relative}
+.pfill{position:absolute;top:0;bottom:0;left:0}
+.pfill.dashed{background:repeating-linear-gradient(90deg,#b98d1f 0 6px,transparent 6px 10px)}
+.wline{position:absolute;top:-6px;bottom:-6px;width:1px;background:var(--dim);opacity:.55}
+.wlab{position:absolute;top:-20px;transform:translateX(-50%);color:var(--mute);font-size:9px;letter-spacing:.12em;white-space:nowrap}
+.gridhost{position:relative;margin-top:26px}
+.sig{border-left:2px solid var(--c);padding:10px 14px;margin:10px 0;font-size:12.5px}
+.sig em{color:var(--dim);font-style:normal;display:block;font-size:10.5px;letter-spacing:.14em;margin-bottom:4px}
+.footnote{color:var(--mute);font-size:10.5px;margin-top:10px;max-width:92ch}
+.footer{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;border-top:1px solid var(--line);margin-top:8px;padding:16px 2px 4px;color:var(--dim);font-size:11px;letter-spacing:.14em}
+.footer a{color:var(--amber);text-decoration:none}
+</style>
+<div class="plate" style="--c:var(--amber)">
+  <div class="brandbar">
+    <div class="brand">NETSPHERE<span class="dot"> ●</span></div>
+    <div class="plateno">FIELD PLATE No.09-3 / 2026-07</div>
+  </div>
+  <div class="masthead">
+    <div class="role">THE MEMORY POOL · KV CAPACITY · 16 → 8 → 4 BIT</div>
+    <h1>How many deep users fit in one box</h1>
+    <div class="sub">The KV pool is not the context window — it is the box's total attention memory, shared by every request in flight. A 262K window with an 805K pool means THREE users can each hold a book-length conversation simultaneously. Every number below was measured on the same four Blackwells, and the biggest one was stress-tested at full load.</div>
+  </div>
+  <div class="frame">
+  <section class="mod">
+    <div class="eyebrow"><span class="no">P09-3 · THE POOLS</span><span class="crop">NETSPHERE FIELD PLATE 09-3</span></div>
+    <h2>Measured capacity, in tokens</h2>
+    <p class="lede">Vertical lines mark multiples of the 262,144-token context window — read them as "how many maxed-out conversations fit at once."</p>
+<div class="gridhost">
+<span class="wline" style="left:calc(150px + 12px + (100% - 294px) * 0.326)"><span class="wlab">1× window</span></span>
+<span class="wline" style="left:calc(150px + 12px + (100% - 294px) * 0.651)"><span class="wlab">2× windows</span></span>
+<span class="wline" style="left:calc(150px + 12px + (100% - 294px) * 0.977)"><span class="wlab">3× windows</span></span>
+<div class="prow"><span class="pl" style="color:var(--exl)">EXL3-TR3<small>4-bit KV · pin removed</small></span><span class="ptrack"><span class="pfill" style="background:var(--exl);width:100%"></span></span><span class="pv" style="color:var(--exl)">804,864</span></div>
+<div class="prow"><span class="pl" style="color:var(--exl)">EXL3-TR3<small>4-bit KV · "500K" config</small></span><span class="ptrack"><span class="pfill" style="background:var(--exl);opacity:.55;width:65.1%"></span></span><span class="pv" style="color:var(--exl);opacity:.75">524,288</span></div>
+<div class="prow"><span class="pl" style="color:var(--exl)">EXL3-TR3<small>4-bit KV · as shipped (pinned)</small></span><span class="ptrack"><span class="pfill" style="background:var(--exl);opacity:.3;width:32.6%"></span></span><span class="pv" style="color:var(--exl);opacity:.55">262,144</span></div>
+<div class="prow"><span class="pl" style="color:var(--hyb)">NF3 HYBRID<small>8-bit KV · as shipped</small></span><span class="ptrack"><span class="pfill" style="background:var(--hyb);width:44.7%"></span></span><span class="pv" style="color:var(--hyb)">359,424</span></div>
+<div class="prow"><span class="pl" style="color:var(--glm)">Q3/LCPP<small>16-bit KV · served ceiling</small></span><span class="ptrack"><span class="pfill dashed" style="width:20.4%"></span></span><span class="pv" style="color:var(--glm)">163,840</span></div>
+</div>
+  </section>
+  <section class="mod">
+    <div class="eyebrow"><span class="no">P09-3 · THE RECEIPTS</span><span class="crop">NETSPHERE FIELD PLATE 09-3</span></div>
+    <h2>Stress-tested, not brochure-quoted</h2>
+<div class="heroes">
+<div class="hcell" style="--c:var(--exl)"><div class="k">CONCURRENT STRESS · 3 × 250K</div><div class="v">3/3<small> served</small></div><div class="n">~750K tokens in flight · zero preemptions · zero errors</div></div>
+<div class="hcell" style="--c:var(--exl)"><div class="k">RETRIEVAL THROUGH 4-BIT KV</div><div class="v">PASS<small> @254K</small></div><div class="n">planted code at 92% depth · exact · + fleet-record deepctx</div></div>
+<div class="hcell" style="--c:var(--hyb)"><div class="k">HYBRID POOL · DEEP CONCURRENCY</div><div class="v">c=1<small> only</small></div><div class="n">3×100K exhausts 359K pool → preemption thrash, aggregate −5×</div></div>
+<div class="hcell"><div class="k">BYTES PER TOKEN · 16 → 8 → 4</div><div class="v">½ × ½</div><div class="n">each halving ≈ doubles the pool — same VRAM</div></div>
+</div>
+<div class="sig" style="--c:var(--exl)"><em>THE CLAIMS AUDIT</em>The EXL3 recipe ships pinned to exactly one window (262,144) — conservative. The community "500K KV" claim turned out to be the 2048-block configuration: real, measured here at 524,288, full speed. Removing the pin entirely: 804,864 tokens, then validated the hard way — probes, a 254K needle retrieval, and three simultaneous 250K requests with zero preemption events in the server log. The pin is caution, not necessity. (Sero's 422K pool claim measured 359K on our rig — ordinary cross-host VRAM accounting drift, not inflation. Both authors' claims survived audit within honest tolerances.)</div>
+<div class="sig"><em>WHY 4-BIT KV ISN'T A QUALITY TRADE HERE</em>Quantizing the KV cache perturbs what the model remembers about every token it has read — the obvious fear is fuzzy recall at depth. Measured: the 4-bit body posts the BEST deep-context scores on this instrument and exact needle retrieval at 254K. GLM's MLA architecture stores a compact latent per token, and the nvfp4_ds_mla format block-scales it specifically; at least for this model family, half the memory per token costs nothing we can detect. The sibling investigation (qwen, 8-bit vs 16-bit KV) reached the same verdict one rung up the ladder — and there, 16-bit could not even SERVE 128K on the card that 8-bit serves it flat.</div>
+<p class="footnote">All pools read from vLLM boot logs (kv_cache_utils GPU KV cache size) on 4× RTX PRO 6000 Blackwell 96 GB. Stress method: vllm bench serve, 3 prompts × ~250K random tokens, max-concurrency 3, 128-token outputs; server log audited for preempt/abort/OOM after the run (0 hits). Deep-concurrency under-provisioned pools measured separately (100K × c=1/2/3 on the hybrid: per-stream 48.2 → 8.1 → 3.2 tok/s). Q3/lcpp row is its measured served ceiling (163,840 unified slot cache), not an equivalent pool architecture. Receipts: private registry, 2026-07-24.</p>
+  </section>
+  </div>
+  <div class="footer">
+    <span>TRUST IS MEASURED, NOT ASSUMED</span>
+    <a href="https://github.com/killy-netsphere/Netsphere-Eval">github.com/killy-netsphere/Netsphere-Eval</a>
+    <span>NETSPHERE · SOVEREIGN AI</span>
+  </div>
+</div>
