@@ -74,19 +74,19 @@ font:11.5px/1.5 var(--mono);padding:7px 10px;z-index:9;opacity:0;transition:opac
 <div class="hcell"><div class="k">DECODE @ 254K · tok/s</div>
 <div class="rank"><span class="rm" style="color:var(--hyb)">NF3 HYBRID</span><span class="rv" style="color:var(--hyb)">98</span></div>
 <div class="rank"><span class="rm" style="color:var(--exl)">EXL3-TR3</span><span class="rv" style="color:var(--exl)">67</span></div>
-<div class="rank"><span class="rm" style="color:var(--glm)">Q3 GGUF</span><span class="rv" style="color:var(--glm)">13</span></div></div>
+<div class="n">Q3 GGUF: 13</div></div>
 <div class="hcell"><div class="k">FIRST TOKEN @ 254K · seconds</div>
 <div class="rank"><span class="rm" style="color:var(--exl)">EXL3-TR3</span><span class="rv" style="color:var(--exl)">129</span></div>
 <div class="rank"><span class="rm" style="color:var(--hyb)">NF3 HYBRID</span><span class="rv" style="color:var(--hyb)">140</span></div>
-<div class="rank"><span class="rm" style="color:var(--glm)">Q3 GGUF <i>derived</i></span><span class="rv" style="color:var(--glm)">≈590</span></div></div>
+<div class="n">Q3 GGUF: ≈590 (derived)</div></div>
 <div class="hcell"><div class="k">PREFILL · tok/s · FLAT TO 261K</div>
 <div class="rank"><span class="rm" style="color:var(--exl)">EXL3-TR3</span><span class="rv" style="color:var(--exl)">2.0–2.3K</span></div>
 <div class="rank"><span class="rm" style="color:var(--hyb)">NF3 HYBRID</span><span class="rv" style="color:var(--hyb)">1.8K</span></div>
-<div class="rank"><span class="rm" style="color:var(--glm)">Q3 GGUF</span><span class="rv" style="color:var(--glm)">0.43K</span></div></div>
+<div class="n">Q3 GGUF: 0.43K</div></div>
 <div class="hcell"><div class="k">DEPTH TAX · ENGINE RATE · 1K→261K</div>
 <div class="rank"><span class="rm" style="color:var(--exl)">EXL3-TR3</span><span class="rv" style="color:var(--exl)">−4%</span></div>
 <div class="rank"><span class="rm" style="color:var(--hyb)">NF3 HYBRID</span><span class="rv" style="color:var(--hyb)">−4%</span></div>
-<div class="rank"><span class="rm" style="color:var(--glm)">Q3 GGUF</span><span class="rv" style="color:var(--glm)">−69%</span></div></div>
+<div class="n">Q3 GGUF: −69%</div></div>
 </div>
 <p class="footnote">Method: streaming, temp 0, ignore_eos, 512-token completions, N=1 per rung (amber 261K point = mean of N=4: 75.6 / 91.0 / 95.0 / 102.0 — re-measured after the first run landed low on draft-acceptance variance), depths read back from usage.prompt_tokens. Decode = completion tokens over the chunk-timed window (MTP acceptance folded in — amber/olive wobble is content variance, engine-step rates are flat at ~20/s and ~18/s). TTFT measured for both vLLM bodies; Q3 TTFT derived from measured prefill rates (revD §6.2). Q3's curve is the ENGINE (layer-pipelined llama.cpp, one GPU active at a time), not the quant — same brain, different body. Receipts: private registry, runs of 2026-07-23/24, seed 7.</p>
   </section>
