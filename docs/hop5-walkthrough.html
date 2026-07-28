@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NETSPHERE — The Record That Was Always There</title>
+<style>
+:root{--bg:#0e0e0e;--panel:#141414;--panel2:#181818;--line:#2e2e2e;--line2:#232323;
+--ink:#e6e4de;--dim:#8f8c84;--mute:#5c5a54;--amber:#d9a821;--amber-dim:#8a6b15;
+--miss:#d9553f;--miss-dim:#7a2c1e;
+--mono:ui-monospace,"Cascadia Mono","JetBrains Mono",Consolas,Menlo,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--bg)}
+body{font-family:var(--mono);color:var(--ink);background:var(--bg);font-size:14px;line-height:1.55;padding:28px 18px 40px}
+.plate{max-width:1060px;margin:0 auto}
+.brandbar{display:flex;justify-content:space-between;align-items:center;padding:2px 2px 14px}
+.brand{font-weight:700;letter-spacing:.55em;font-size:13px}
+.brandbar .n{color:var(--mute);font-size:11px;letter-spacing:.18em}
+h1{font-size:23px;letter-spacing:.02em;font-weight:700;padding:16px 0 6px;border-top:1px solid var(--line)}
+.sub{color:var(--dim);font-size:13px;max-width:70ch;padding-bottom:18px}
+h2{font-size:12px;letter-spacing:.22em;color:var(--amber);font-weight:700;padding:26px 0 10px}
+p{max-width:74ch;color:var(--dim);padding-bottom:9px}
+p b,strong{color:var(--ink);font-weight:700}
+em{color:var(--ink);font-style:normal;border-bottom:1px dotted var(--mute)}
+
+.stats{display:flex;flex-wrap:wrap;gap:26px;border-block:1px solid var(--line);padding:13px 2px;margin-bottom:6px}
+.stat b{display:block;font-size:19px;color:var(--amber);font-variant-numeric:tabular-nums}
+.stat span{font-size:10px;letter-spacing:.16em;color:var(--mute)}
+
+.ask{background:var(--panel);border:1px solid var(--line);border-left:2px solid var(--amber);padding:14px 16px;margin:4px 0 6px}
+.ask q{quotes:none;color:var(--ink);font-size:15px;display:block;line-height:1.5}
+
+.led{background:var(--panel);border:1px solid var(--line);margin:6px 0 4px}
+.led .bar{display:flex;justify-content:space-between;padding:6px 11px;border-bottom:1px solid var(--line2);background:var(--panel2);font-size:10px;letter-spacing:.16em;color:var(--mute)}
+.led pre{margin:0;padding:11px;overflow-x:auto;font-size:11.5px;line-height:1.95;color:var(--dim)}
+
+ol.chain{list-style:none;counter-reset:h;display:flex;flex-direction:column;gap:8px;padding:4px 0 0}
+ol.chain>li{counter-increment:h;position:relative;background:var(--panel);border:1px solid var(--line);padding:12px 14px 12px 44px}
+ol.chain>li::before{content:counter(h);position:absolute;left:13px;top:12px;width:20px;height:20px;
+display:grid;place-items:center;font-size:11px;font-weight:700;color:var(--amber);border:1px solid var(--amber-dim);background:#1a1508}
+ol.chain>li.broke{border-color:var(--miss-dim)}
+ol.chain>li.broke::before{color:var(--miss);border-color:var(--miss-dim);background:#1d0f0b}
+.goal{font-size:10px;letter-spacing:.18em;color:var(--mute);padding-bottom:7px}
+.recs{font-size:11.5px;line-height:1.9;color:var(--dim);overflow-x:auto;padding-bottom:6px}
+.recs div{white-space:nowrap}
+.vd{font-size:12.5px;color:var(--dim)}
+.vd b{color:var(--amber)}
+li.broke .vd b{color:var(--miss)}
+
+.reveal{background:#170d0a;border:1px solid var(--miss-dim);border-left:2px solid var(--miss);padding:14px 16px;margin:14px 0 4px}
+.reveal .goal{color:var(--miss)}
+.reveal .rec{font-size:12.5px;color:var(--ink);font-weight:700;overflow-x:auto;white-space:nowrap;padding-bottom:2px}
+
+.rules{list-style:none;padding:2px 0 6px}
+.rules li{color:var(--dim);padding:2px 0 2px 20px;position:relative;max-width:74ch}
+.rules li::before{content:"›";position:absolute;left:4px;color:var(--amber-dim)}
+
+.f{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;border-top:1px solid var(--line);margin-top:34px;padding-top:13px;font-size:10.5px;letter-spacing:.14em;color:var(--mute)}
+.f a{color:var(--amber-dim);text-decoration:none}
+.f a:hover,.f a:focus-visible{color:var(--amber)}
+.note{color:var(--mute);font-size:11.5px;max-width:78ch;padding-top:10px}
+</style>
+</head>
+<body>
+<div class="plate">
+
+  <div class="brandbar"><span class="brand">NETSPHERE</span><span class="n">LONG-CONTEXT · FIVE-HOP RETRIEVAL</span></div>
+
+  <h1>The Record That Was Always There</h1>
+  <p class="sub">An open-weight model was handed a 3,020-line ledger and a five-link question. It solved four links flawlessly — resolving superseded records and breaking a tie by source authority — then declared the fifth did not exist. It did.</p>
+
+  <div class="stats">
+    <div class="stat"><b>3,020</b><span>RECORDS</span></div>
+    <div class="stat"><b>301,872</b><span>CHARACTERS</span></div>
+    <div class="stat"><b>5</b><span>LINKS TO CHAIN</span></div>
+    <div class="stat"><b>0 / 3</b><span>FIVE-HOP ITEMS PASSED</span></div>
+  </div>
+
+  <h2>THE SETUP</h2>
+  <p>The ledger is flat and unsorted. The same key appears on several records, so before trusting any line you must find <em>every</em> line mentioning it and apply a precedence rule:</p>
+  <ul class="rules">
+    <li>The record with the latest <b>as_of</b> date wins.</li>
+    <li>If dates tie, <b>source=AUDIT</b> beats <b>source=SELF-REPORT</b>.</li>
+    <li>If still tied, the higher <b>rev=</b> number wins.</li>
+  </ul>
+  <p>Position in the file is irrelevant — a superseded record may appear anywhere, including after the record that supersedes it. Identifiers are deliberately similar; a near-match is a wrong match.</p>
+
+  <div class="led">
+    <div class="bar"><span>LEDGER EXCERPT</span><span>3,020 LINES TOTAL</span></div>
+<pre>R000052 | STAFF STF-54761 :: name=Ines Hadjiev :: dept=Facilities :: office=RM-1582 :: as_of=2031-10-01
+R000267 | STAFF STF-38336 :: name=Cormac Haugland :: dept=Fabrication :: office=RM-1094 :: as_of=2031-04-01
+R000533 | TASK TSK-56656 :: project=PRJ-1035 :: owner=STF-25924 :: status=internal :: hours=27
+R000973 | TASK TSK-41291 :: project=PRJ-8722 :: owner=STF-56566 :: status=blocked :: hours=74
+R001514 | TASK TSK-62789 :: project=PRJ-2353 :: owner=STF-95927 :: status=blocked :: hours=88
+R001782 | NOTE :: 2030-09-18 :: visitor parking stripe repainting deferred to spring
+R002228 | ACCESS AC-3516 :: custodian=Thandiwe Delacroix :: renewed=2031-06-05 :: as_of=2031-02-03
+R002426 | STAFF STF-68283 :: name=Bjorn Yamashiro :: dept=Logistics :: office=RM-1435 :: as_of=2031-02-15
+R002479 | STAFF STF-61864 :: name=Mirembe Kowalczyk :: dept=Safety :: office=RM-2455 :: as_of=2032-09-17
+R003019 | PROJECT PRJ-9984 :: lead=STF-70254 :: cycle=FY30 :: status=provisional :: as_of=2032-08-28</pre>
+  </div>
+
+  <h2>THE QUESTION</h2>
+  <div class="ask"><q>Who is the custodian of the access code assigned to the building that contains the office of the staff member who leads project PRJ-7731?</q></div>
+
+  <h2>WHAT THE MODEL DID</h2>
+  <p>Four links, each requiring a complete scan of the ledger and a correct precedence call. All four correct.</p>
+
+  <ol class="chain">
+    <li>
+      <div class="goal">FIND THE LEAD OF PRJ-7731</div>
+      <div class="recs">
+        <div>R000418 | PROJECT PRJ-7731 :: lead=STF-31408 :: as_of=2031-03-14</div>
+        <div>R002655 | PROJECT PRJ-7731 :: lead=STF-62950 :: as_of=2031-11-22</div>
+      </div>
+      <div class="vd">Two records conflict. Later date wins → <b>STF-62950</b></div>
+    </li>
+    <li>
+      <div class="goal">FIND THAT PERSON'S OFFICE</div>
+      <div class="recs">
+        <div>R001106 | STAFF STF-62950 :: office=RM-4471 :: as_of=2029-08-03</div>
+        <div>R002884 | STAFF STF-62950 :: office=RM-9182 :: as_of=2030-05-19</div>
+      </div>
+      <div class="vd">Superseded again. Later date wins → <b>RM-9182</b></div>
+    </li>
+    <li>
+      <div class="goal">FIND THE BUILDING CONTAINING THAT OFFICE</div>
+      <div class="recs">
+        <div>R000902 | OFFICE RM-9182 :: building=BLD-CEDAR-7 :: as_of=2030-09-11 :: source=SELF-REPORT :: rev=6</div>
+        <div>R002130 | OFFICE RM-9182 :: building=BLD-CEDAR-7 :: as_of=2030-09-11 :: source=AUDIT :: rev=2</div>
+      </div>
+      <div class="vd">Dates tie. AUDIT outranks SELF-REPORT → <b>BLD-CEDAR-7</b></div>
+    </li>
+    <li>
+      <div class="goal">FIND THAT BUILDING'S ACCESS CODE</div>
+      <div class="recs"><div>R001537 | BUILDING BLD-CEDAR-7 :: access_code=AC-5093 :: wing=east :: as_of=2030-04-03</div></div>
+      <div class="vd">Single record → <b>AC-5093</b></div>
+    </li>
+    <li class="broke">
+      <div class="goal">FIND THE CUSTODIAN OF AC-5093</div>
+      <div class="vd" style="padding-bottom:6px">“Searching all ACCESS records for AC-5093… no record with this key exists anywhere in the ledger.”</div>
+      <div class="vd"><b>FINAL ANSWER: NOT IN CONTEXT</b></div>
+    </li>
+  </ol>
+
+  <div class="reveal">
+    <div class="goal">IT WAS THERE THE WHOLE TIME</div>
+    <div class="rec">R002741 | ACCESS AC-5093 :: custodian=Anneke Vasquez :: renewed=2030-04-03 :: as_of=2029-02-25</div>
+  </div>
+
+  <h2>WHY THIS KEEPS HAPPENING</h2>
+  <p>The reasoning was never the problem. Resolving superseded records and breaking ties by source authority is the part everyone assumes is hard, and the model did it four times without error.</p>
+  <p>The failure was <em>looking</em>. Every link requires finding all matching lines in 300,000 characters. Get that 90% right and a five-link chain survives about <b>59%</b> of the time. At 80% it is <b>33%</b>. The chain does not break because reasoning degrades — it breaks because five consecutive perfect searches is a bet you lose.</p>
+  <p>One detail worth keeping: the model answered <em>NOT IN CONTEXT</em> rather than inventing a plausible custodian. Wrong, but wrong in the direction that does not hurt anyone. That distinction matters more than most benchmark scores.</p>
+
+  <p class="note">Regenerated from a live evaluation item — same structure, mechanics and difficulty, with substituted names and identifiers so the original stays uncontaminated for future testing. Five-hop items scored 0/3 across every serving configuration tested. Scroll the complete ledger yourself: <a href="hop5-ledger.html" style="color:var(--amber)">hop5-ledger.html</a></p>
+
+  <div class="f"><span>TRUST IS MEASURED, NOT ASSUMED</span><a href="https://github.com/killy-netsphere/Netsphere-Eval">repository</a><span>NETSPHERE · SOVEREIGN AI</span></div>
+</div>
+</body>
+</html>
