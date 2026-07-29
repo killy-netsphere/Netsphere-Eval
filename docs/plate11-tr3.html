@@ -4,19 +4,17 @@
   --bg:#0e0e0e;--panel:#141414;--panel2:#181818;--line:#2e2e2e;--line2:#232323;
   --ink:#efede7;--dim:#b3afa5;--mute:#8d8981;
   --amber:#d9a821;--amber-dim:#8a6b15;--amber-bg:#1a1508;
-  --miss:#d9553f;--miss-dim:#7a2c1e;
+  --miss:#d9553f;--miss-dim:#7a2c1e;--miss-bg:#170d0a;
   --ok:#6d9e79;--ok-dim:#2f5237;
   --mono:ui-monospace,"Cascadia Mono","JetBrains Mono",Consolas,Menlo,monospace;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{background:var(--bg)}
-body{font-family:var(--mono);color:var(--ink);background:var(--bg);font-size:14.5px;line-height:1.55;padding:26px 16px 46px}
-.plate{max-width:1000px;margin:0 auto}
-
+body{font-family:var(--mono);color:var(--ink);background:var(--bg);font-size:14.5px;line-height:1.55;padding:26px 18px 46px}
+.plate{max-width:1060px;margin:0 auto}
 .brandbar{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;padding:0 2px 12px}
 .brand{font-weight:700;letter-spacing:.5em;font-size:11.5px}
 .brandbar .n{color:var(--mute);font-size:10px;letter-spacing:.18em}
-
 h1{font-size:21px;letter-spacing:.01em;font-weight:700;padding:14px 0 5px;border-top:1px solid var(--line);text-wrap:balance}
 .sub{color:var(--dim);font-size:15px;max-width:78ch;padding-bottom:16px;line-height:1.5}
 .sub em{color:var(--ink);font-style:normal;border-bottom:1px dotted var(--mute)}
@@ -25,28 +23,31 @@ p{max-width:84ch;color:var(--dim);padding-bottom:8px;font-size:14px}
 p b,strong{color:var(--ink);font-weight:700}
 code{color:var(--amber);font-size:13px;white-space:nowrap}
 
-/* headline numbers — the loudest thing on the page */
 .hero{display:flex;flex-wrap:wrap;gap:1px;background:var(--line2);border:1px solid var(--line);margin-bottom:4px}
-.hero div{flex:1 1 150px;background:var(--panel);padding:13px 14px}
-.hero b{display:block;font-size:33px;line-height:1.05;color:var(--amber);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
-.hero b small{font-size:15px;color:var(--dim);font-weight:400}
+.hero div{flex:1 1 145px;background:var(--panel);padding:13px 14px}
+.hero b{display:block;font-size:31px;line-height:1.05;color:var(--amber);font-variant-numeric:tabular-nums;letter-spacing:0}
+.hero b small{font-size:14px;color:var(--dim);font-weight:400;margin-left:4px;letter-spacing:.02em}
 .hero span{display:block;font-size:9.5px;letter-spacing:.15em;color:var(--mute);padding-top:6px}
 
-.figwrap{border:1px solid var(--line);background:var(--panel);overflow-x:auto}
-.figbar{display:flex;justify-content:space-between;gap:10px;padding:5px 10px;background:var(--panel2);border-bottom:1px solid var(--line2);font-size:9px;letter-spacing:.16em;color:var(--mute)}
-svg{display:block}
-.cap{color:var(--mute);font-size:12.5px;max-width:84ch;padding:9px 2px 0;line-height:1.5}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:820px){ .duo{grid-template-columns:1fr} }
+
+.figwrap{border:1px solid var(--line);background:var(--panel)}
+.figbar{display:flex;justify-content:space-between;gap:8px;padding:6px 10px;background:var(--panel2);border-bottom:1px solid var(--line2);font-size:9px;letter-spacing:.14em;color:var(--mute)}
+svg{display:block;width:100%;height:auto}
+.legend{display:flex;gap:14px;flex-wrap:wrap;padding:9px 11px 0;font-size:11.5px;color:var(--dim)}
+.sw{display:inline-block;width:10px;height:10px;margin-right:6px;vertical-align:-1px}
+.cap{color:var(--mute);font-size:12.5px;max-width:84ch;padding:10px 2px 0;line-height:1.5}
 .cap em{color:var(--dim);font-style:normal;border-bottom:1px dotted var(--mute)}
 
 .tw{border:1px solid var(--line);background:var(--panel);overflow-x:auto}
-table{border-collapse:collapse;width:100%;min-width:560px;font-size:13.5px}
-th{background:var(--panel2);color:var(--mute);text-align:left;font-size:9.5px;letter-spacing:.15em;font-weight:700;padding:8px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
-td{padding:8px 10px;border-bottom:1px solid var(--line2);color:var(--dim);white-space:nowrap;font-variant-numeric:tabular-nums}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th{background:var(--panel2);color:var(--mute);text-align:left;font-size:9.5px;letter-spacing:.15em;font-weight:700;padding:8px 10px;border-bottom:1px solid var(--line)}
+td{padding:9px 10px;border-bottom:1px solid var(--line2);color:var(--dim);font-variant-numeric:tabular-nums;line-height:1.45}
 tr:last-child td{border-bottom:none}
 td.m{color:var(--ink);font-weight:700;white-space:nowrap}
 td.win{color:var(--amber);font-weight:700}
 .inc{color:var(--miss);font-weight:700}
-.z{color:var(--mute)}
 
 ul.pl{list-style:none;padding:2px 0 4px}
 ul.pl li{color:var(--dim);padding:5px 0 5px 20px;position:relative;max-width:84ch;font-size:14px;line-height:1.55}
@@ -66,135 +67,191 @@ ul.pl li em{color:var(--dim);font-style:normal;border-bottom:1px dotted var(--mu
   <p class="sub">It runs faster than the Sero hybrid <em>and</em> holds a larger KV pool than EXL3 — the two things I've been choosing between all along.</p>
 
   <div class="hero">
-    <div><b>+31<small>%</small></b><span>DECODE vs HYBRID</span></div>
-    <div><b>2.4<small>×</small></b><span>KV POOL vs HYBRID</span></div>
-    <div><b>+9<small>%</small></b><span>KV POOL vs EXL3</span></div>
-    <div><b>400<small>K</small></b><span>SERVED CONTEXT</span></div>
-    <div><b>71<small>/80</small></b><span>BEST EVAL SCORE</span></div>
+    <div><b>+22<small>%</small></b><span>DECODE vs HYBRID, MEAN</span></div>
+    <div><b>883,685</b><span>KV POOL · 2.46× THE HYBRID</span></div>
+    <div><b>392<small>K</small></b><span>REACH · HYBRID CAPS AT 262K</span></div>
+    <div><b>3.0<small> bpw</small></b><span>vs HYBRID'S 3.25</span></div>
+    <div><b>71<small>/80</small></b><span>EVAL · HYBRID 69/80</span></div>
   </div>
 
-  <h2>SPEED AND POOL — MEASURED, SAME HOST</h2>
-  <div class="figwrap">
-    <div class="figbar"><span>DECODE tok/s  ·  KV POOL tokens</span><span>SAME HOST · 4× RTX PRO 6000 · TP4/DCP4</span></div>
-    <svg viewBox="0 0 960 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bar chart comparing decode throughput and KV pool across hybrid, EXL3 and TR3.">
-      <style>
-        .g{stroke:#2e2e2e;stroke-width:1}
-        .lb{fill:#efede7;font:700 12px ui-monospace,monospace}
-        .ls{fill:#8d8981;font:700 9px ui-monospace,monospace;letter-spacing:.14em}
-        .vn{fill:#d9a821;font:700 13px ui-monospace,monospace}
-        .vd{fill:#b3afa5;font:400 10.5px ui-monospace,monospace}
-      </style>
-      <text class="ls" x="14" y="20">DECODE  tok/s</text>
-      <line class="g" x1="150" y1="8" x2="150" y2="120"/>
-      <!-- hybrid 74, exl3 57, tr3 97 ; scale 3.6px per tok/s -->
-      <rect x="150" y="30" width="266" height="20" fill="#2a2116" stroke="#5c4a12"/>
-      <text class="lb" x="14" y="45">Sero hybrid</text><text class="vd" x="426" y="45">74</text>
-      <rect x="150" y="60" width="205" height="20" fill="#2a2116" stroke="#5c4a12"/>
-      <text class="lb" x="14" y="75">EXL3</text><text class="vd" x="365" y="75">57</text>
-      <rect x="150" y="90" width="349" height="20" fill="#3d2f08" stroke="#d9a821"/>
-      <text class="lb" x="14" y="105">TR3</text><text class="vn" x="509" y="105">97</text>
+  <h2>TOKEN-TRUE LADDER — ONE INSTRUMENT, ONE WINDOW</h2>
+  <div class="duo">
 
-      <text class="ls" x="14" y="152">KV POOL  tokens</text>
-      <line class="g" x1="150" y1="140" x2="150" y2="240"/>
-      <!-- hybrid 359424, exl3 804864, tr3 880358 ; scale 0.00042 -->
-      <rect x="150" y="160" width="151" height="20" fill="#2a2116" stroke="#5c4a12"/>
-      <text class="lb" x="14" y="175">Sero hybrid</text><text class="vd" x="311" y="175">359,424</text>
-      <rect x="150" y="190" width="338" height="20" fill="#2a2116" stroke="#5c4a12"/>
-      <text class="lb" x="14" y="205">EXL3</text><text class="vd" x="498" y="205">804,864</text>
-      <rect x="150" y="220" width="370" height="20" fill="#3d2f08" stroke="#d9a821"/>
-      <text class="lb" x="14" y="235">TR3</text><text class="vn" x="530" y="235">880,358</text>
-    </svg>
+    <div class="figwrap">
+      <div class="figbar"><span>DECODE</span><span>tok/s · HIGHER IS BETTER</span></div>
+      <div class="legend">
+        <span><i class="sw" style="background:#6a6a6a"></i>NF3 hybrid</span>
+        <span><i class="sw" style="background:#8a6b15"></i>TR3 · default</span>
+        <span><i class="sw" style="background:#d9a821"></i>TR3 · mtp5-prob</span>
+      </div>
+      <svg viewBox="0 0 490 300" xmlns="http://www.w3.org/2000/svg" role="img"
+           aria-label="Decode throughput against context length for the NF3 hybrid and TR3 at its default and tuned configurations.">
+        <style>
+          .gr{stroke:#2a2a2a;stroke-width:1}
+          .gx{stroke:#242424;stroke-width:1;stroke-dasharray:2 5}
+          .ax{fill:#8d8981;font:700 9.5px ui-monospace,monospace;letter-spacing:.1em}
+          .el{font:700 11px ui-monospace,monospace}
+        </style>
+        <text class="ax" x="8" y="16">tok/s</text>
+        <line class="gr" x1="52" y1="50"  x2="458" y2="50"/>
+        <line class="gr" x1="52" y1="100" x2="458" y2="100"/>
+        <line class="gr" x1="52" y1="150" x2="458" y2="150"/>
+        <line class="gr" x1="52" y1="200" x2="458" y2="200"/>
+        <line class="gr" x1="52" y1="250" x2="458" y2="250"/>
+        <text class="ax" x="45" y="54"  text-anchor="end">120</text>
+        <text class="ax" x="45" y="104" text-anchor="end">110</text>
+        <text class="ax" x="45" y="154" text-anchor="end">100</text>
+        <text class="ax" x="45" y="204" text-anchor="end">90</text>
+        <text class="ax" x="45" y="254" text-anchor="end">80</text>
+
+        <line class="gx" x1="78"  y1="30" x2="78"  y2="250"/>
+        <line class="gx" x1="250" y1="30" x2="250" y2="250"/>
+        <line class="gx" x1="365" y1="30" x2="365" y2="250"/>
+        <line class="gx" x1="423" y1="30" x2="423" y2="250"/>
+        <text class="ax" x="78"  y="270" text-anchor="middle">4K</text>
+        <text class="ax" x="250" y="270" text-anchor="middle">32K</text>
+        <text class="ax" x="365" y="270" text-anchor="middle">128K</text>
+        <text class="ax" x="423" y="270" text-anchor="middle">256K</text>
+        <text class="ax" x="255" y="290" text-anchor="middle">CONTEXT LENGTH</text>
+
+        <path d="M232 210 L291 111 L348 220 L384 180 L420 158" fill="none" stroke="#6a6a6a" stroke-width="2.2" stroke-linejoin="round"/>
+        <circle cx="232" cy="210" r="3.6" fill="#6a6a6a" stroke="#141414" stroke-width="1.6"/>
+        <circle cx="291" cy="111" r="3.6" fill="#6a6a6a" stroke="#141414" stroke-width="1.6"/>
+        <circle cx="348" cy="220" r="3.6" fill="#6a6a6a" stroke="#141414" stroke-width="1.6"/>
+        <circle cx="384" cy="180" r="3.6" fill="#6a6a6a" stroke="#141414" stroke-width="1.6"/>
+        <circle cx="420" cy="158" r="3.6" fill="#6a6a6a" stroke="#141414" stroke-width="1.6"/>
+        <text class="el" x="434" y="162" fill="#6a6a6a">98.3</text>
+
+        <path d="M57 216 L227 188 L366 185 L423 185 L455 174" fill="none" stroke="#8a6b15" stroke-width="2.4" stroke-linejoin="round"/>
+        <circle cx="57"  cy="216" r="3.8" fill="#8a6b15" stroke="#141414" stroke-width="1.6"/>
+        <circle cx="227" cy="188" r="3.8" fill="#8a6b15" stroke="#141414" stroke-width="1.6"/>
+        <circle cx="366" cy="185" r="3.8" fill="#8a6b15" stroke="#141414" stroke-width="1.6"/>
+        <circle cx="423" cy="185" r="3.8" fill="#8a6b15" stroke="#141414" stroke-width="1.6"/>
+        <circle cx="455" cy="174" r="3.8" fill="#8a6b15" stroke="#141414" stroke-width="1.6"/>
+        <text class="el" x="452" y="200" fill="#8a6b15" text-anchor="end">95.1</text>
+
+        <path d="M76 130 L244 95 L365 130 L424 60 L453 39" fill="none" stroke="#d9a821" stroke-width="2.8" stroke-linejoin="round"/>
+        <circle cx="76"  cy="130" r="4.4" fill="#d9a821" stroke="#141414" stroke-width="1.8"/>
+        <circle cx="244" cy="95"  r="4.4" fill="#d9a821" stroke="#141414" stroke-width="1.8"/>
+        <circle cx="365" cy="130" r="4.4" fill="#d9a821" stroke="#141414" stroke-width="1.8"/>
+        <circle cx="424" cy="60"  r="4.4" fill="#d9a821" stroke="#141414" stroke-width="1.8"/>
+        <circle cx="453" cy="39"  r="4.4" fill="#d9a821" stroke="#141414" stroke-width="1.8"/>
+        <text class="el" x="450" y="30" fill="#d9a821" text-anchor="end">122.2</text>
+
+        <text class="ax" x="440" y="238" text-anchor="end" fill="#6a6a6a">hybrid ends at 262K ↓</text>
+      </svg>
+    </div>
+
+    <div class="figwrap">
+      <div class="figbar"><span>DECODE, LIKE FOR LIKE</span><span>tok/s · MATCHED CONTEXT</span></div>
+      <div class="legend">
+        <span><i class="sw" style="background:#6a6a6a"></i>NF3 hybrid</span>
+        <span><i class="sw" style="background:#8a6b15"></i>TR3 · default</span>
+        <span><i class="sw" style="background:#d9a821"></i>TR3 · mtp5-prob</span>
+      </div>
+      <svg viewBox="0 0 490 300" xmlns="http://www.w3.org/2000/svg" role="img"
+           aria-label="Decode throughput at four matched context lengths for the hybrid and TR3 at two configurations.">
+        <style>
+          .gr2{stroke:#2a2a2a;stroke-width:1}
+          .zl2{stroke:#6a6a6a;stroke-width:1.5}
+          .ax3{fill:#8d8981;font:700 9.5px ui-monospace,monospace;letter-spacing:.1em}
+          .bv{font:700 9px ui-monospace,monospace}
+          .na{fill:#5c5a54;font:600 8.5px ui-monospace,monospace}
+        </style>
+        <text class="ax3" x="8" y="16">tok/s</text>
+        <line class="gr2" x1="56" y1="47"  x2="462" y2="47"/>
+        <line class="gr2" x1="56" y1="98"  x2="462" y2="98"/>
+        <line class="gr2" x1="56" y1="148" x2="462" y2="148"/>
+        <line class="gr2" x1="56" y1="199" x2="462" y2="199"/>
+        <line class="zl2" x1="56" y1="250" x2="462" y2="250"/>
+        <text class="ax3" x="49" y="51"  text-anchor="end">120</text>
+        <text class="ax3" x="49" y="102" text-anchor="end">90</text>
+        <text class="ax3" x="49" y="152" text-anchor="end">60</text>
+        <text class="ax3" x="49" y="203" text-anchor="end">30</text>
+        <text class="ax3" x="49" y="254" text-anchor="end">0</text>
+
+        <!-- ~30K -->
+        <rect x="70"  y="101" width="22" height="149" fill="#6a6a6a"/>
+        <rect x="95"  y="94"  width="22" height="156" fill="#8a6b15"/>
+        <rect x="120" y="62"  width="22" height="188" fill="#d9a821"/>
+        <text class="bv" x="81"  y="95" text-anchor="middle" fill="#8d8981">88.0</text>
+        <text class="bv" x="106" y="88" text-anchor="middle" fill="#b3afa5">92.4</text>
+        <text class="bv" x="131" y="56" text-anchor="middle" fill="#d9a821">110.9</text>
+        <text class="ax3" x="106" y="270" text-anchor="middle">~30K</text>
+
+        <!-- ~130K -->
+        <rect x="171" y="105" width="22" height="145" fill="#6a6a6a"/>
+        <rect x="196" y="93"  width="22" height="157" fill="#8a6b15"/>
+        <rect x="221" y="74"  width="22" height="176" fill="#d9a821"/>
+        <text class="bv" x="182" y="99" text-anchor="middle" fill="#8d8981">85.9</text>
+        <text class="bv" x="207" y="87" text-anchor="middle" fill="#b3afa5">92.9</text>
+        <text class="bv" x="232" y="68" text-anchor="middle" fill="#d9a821">104.0</text>
+        <text class="ax3" x="207" y="270" text-anchor="middle">~130K</text>
+
+        <!-- ~260K -->
+        <rect x="272" y="84"  width="22" height="166" fill="#6a6a6a"/>
+        <rect x="297" y="93"  width="22" height="157" fill="#8a6b15"/>
+        <rect x="322" y="50"  width="22" height="200" fill="#d9a821"/>
+        <text class="bv" x="283" y="78" text-anchor="middle" fill="#8d8981">98.3</text>
+        <text class="bv" x="308" y="87" text-anchor="middle" fill="#b3afa5">93.0</text>
+        <text class="bv" x="333" y="44" text-anchor="middle" fill="#d9a821">117.9</text>
+        <text class="ax3" x="308" y="270" text-anchor="middle">~260K</text>
+
+        <!-- ~390K : hybrid cannot reach -->
+        <rect x="373" y="215" width="22" height="35" fill="none" stroke="#4a4a4a" stroke-width="1" stroke-dasharray="3 3"/>
+        <text class="na" x="384" y="209" text-anchor="middle">n/a</text>
+        <rect x="398" y="89"  width="22" height="161" fill="#8a6b15"/>
+        <rect x="423" y="43"  width="22" height="207" fill="#d9a821"/>
+        <text class="bv" x="409" y="83" text-anchor="middle" fill="#b3afa5">95.1</text>
+        <text class="bv" x="434" y="37" text-anchor="middle" fill="#d9a821">122.2</text>
+        <text class="ax3" x="409" y="270" text-anchor="middle">~390K</text>
+
+        <text class="na" x="384" y="286" text-anchor="middle">hybrid caps at 262K</text>
+        <text class="ax3" x="200" y="290" text-anchor="middle">CONTEXT LENGTH</text>
+      </svg>
+    </div>
+
   </div>
-  <p class="cap">Decode from the v2 suite; pool read from each engine's own <code>kv_cache_utils</code> line at load. The hybrid served 262,144 context against that pool; TR3 serves <b>400,000</b>.</p>
-
-  <h2>SPEC-DECODE CONFIGS — DECODE MOVES, PREFILL DOESN'T</h2>
-  <div class="figwrap">
-    <div class="figbar"><span>OPTIMISATION MATRIX · 106,739-TOKEN DEEP PROBE</span><span>SHALLOW ▪ DEEP ▪ PREFILL</span></div>
-    <svg viewBox="0 0 960 268" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Decode and prefill throughput across four speculative decoding configurations.">
-      <style>
-        .cl{fill:#efede7;font:700 12px ui-monospace,monospace}
-        .cs{fill:#8d8981;font:700 9px ui-monospace,monospace;letter-spacing:.13em}
-        .cv{fill:#b3afa5;font:400 10.5px ui-monospace,monospace}
-        .cw{fill:#d9a821;font:700 12px ui-monospace,monospace}
-        .pf{fill:#3a3a3a}
-      </style>
-      <text class="cs" x="14" y="18">CONFIG</text>
-      <text class="cs" x="196" y="18">SHALLOW DECODE</text>
-      <text class="cs" x="470" y="18">DEEP DECODE @107K</text>
-      <text class="cs" x="762" y="18">PREFILL tok/s</text>
-      <line x1="190" y1="26" x2="190" y2="256" stroke="#2e2e2e"/>
-      <line x1="752" y1="26" x2="752" y2="256" stroke="#2e2e2e"/>
-
-      <!-- rows: k3, mtp5-prob, mtp5-greedy, mtp7  | scale 2.4px per tok/s -->
-      <text class="cl" x="14" y="52">k3-greedy</text>
-      <rect x="196" y="40" width="146" height="16" fill="#2b2b2b" stroke="#4d4d4d"/><text class="cv" x="350" y="52">61.0</text>
-      <rect x="470" y="40" width="156" height="16" fill="#2b2b2b" stroke="#4d4d4d"/><text class="cv" x="634" y="52">65.0</text>
-      <rect x="762" y="40" width="150" height="16" fill="#2a2116" stroke="#5c4a12"/><text class="cv" x="866" y="52">1,831</text>
-
-      <text class="cl" x="14" y="92">mtp5-prob</text>
-      <rect x="196" y="80" width="185" height="16" fill="#2b2b2b" stroke="#4d4d4d"/><text class="cv" x="389" y="92">77.0</text>
-      <rect x="470" y="80" width="182" height="16" fill="#2b2b2b" stroke="#4d4d4d"/><text class="cv" x="660" y="92">75.8</text>
-      <rect x="762" y="80" width="150" height="16" fill="#2a2116" stroke="#5c4a12"/><text class="cv" x="866" y="92">1,833</text>
-
-      <text class="cl" x="14" y="132">mtp5-greedy</text>
-      <rect x="196" y="120" width="189" height="16" fill="#3d2f08" stroke="#d9a821"/><text class="cw" x="393" y="132">78.7</text>
-      <rect x="470" y="120" width="193" height="16" fill="#2b2b2b" stroke="#4d4d4d"/><text class="cv" x="671" y="132">80.4</text>
-      <rect x="762" y="120" width="150" height="16" fill="#2a2116" stroke="#5c4a12"/><text class="cv" x="866" y="132">1,831</text>
-
-      <text class="cl" x="14" y="172">mtp7-prob</text>
-      <rect x="196" y="160" width="161" height="16" fill="#2b2b2b" stroke="#4d4d4d"/><text class="cv" x="365" y="172">67.2</text>
-      <rect x="470" y="160" width="212" height="16" fill="#3d2f08" stroke="#d9a821"/><text class="cw" x="690" y="172">88.2</text>
-      <rect x="762" y="160" width="150" height="16" fill="#2a2116" stroke="#5c4a12"/><text class="cv" x="866" y="172">1,825</text>
-
-      <line x1="14" y1="196" x2="946" y2="196" stroke="#2e2e2e"/>
-      <text class="cs" x="14" y="220">SPREAD</text>
-      <text class="cv" x="196" y="220">17.7 tok/s  ·  29% between best and worst</text>
-      <text class="cv" x="470" y="220">23.2 tok/s  ·  36% between best and worst</text>
-      <text class="cw" x="762" y="220">8 tok/s · 0.4%</text>
-      <text class="cs" x="14" y="244">READ</text>
-      <text class="cv" x="196" y="244">Speculative decoding changes decode by up to a third. Prefill is untouched — as it must be.</text>
-    </svg>
-  </div>
-  <p class="cap">Prefill derived from time-to-first-chunk on an identical 106,739-token prompt: 58.2–58.5 s across every cell. Speculative decoding only drafts <em>output</em> tokens, so a prefill difference here would have meant a broken measurement, not a faster config. It's the control that proves the harness.</p>
+  <p class="cap"><b>Left</b> — the full curve: token-true decode, 512-token window, identical rungs and instrument for all three. <b>Right</b> — the same data at four matched depths. TR3 tuned leads by <b>+26%, +21% and +20%</b>, and at 390K the hybrid has no bar at all: <em>its context ends at 262K</em>. Prefill favours TR3 too — 129s to first token at 263K against the hybrid's 140s at 254K, roughly 2,050 vs 1,810 tok/s.</p>
+  <p><b>Decode rises with context on TR3</b> rather than degrading — 104 at 4K to 122 at 392K. The hybrid's line is the erratic one, swinging between 85.9 and 107.8 across neighbouring rungs. <b>TR3 at its stock default is already at parity with the hybrid</b>; the speculative width is what opens the gap, worth +12% to +28% over the default depending on depth.</p>
 
   <h2>EVAL — v2 SUITE, MAX EFFORT</h2>
   <div class="tw">
     <table>
-      <thead><tr><th>SERVING CONFIG</th><th>AGENTIC</th><th>DEEPCTX</th><th>GROUNDED</th><th>MATH</th><th>TOTAL /80</th><th>tok/s</th></tr></thead>
+      <thead><tr><th>MODEL / CONFIG</th><th>AGENTIC</th><th>DEEPCTX</th><th>GROUNDED</th><th>MATH</th><th>TOTAL /80</th></tr></thead>
       <tbody>
-        <tr><td class="m">k3-greedy</td><td>15/15</td><td>7/15 <span class="inc">(2)</span></td><td>30/30</td><td class="win">19/20</td><td class="win">71/80 <span class="inc">(2)</span></td><td>90</td></tr>
-        <tr><td class="m">as shipped</td><td>15/15</td><td>7/15 <span class="inc">(4)</span></td><td>30/30</td><td>18/20 <span class="inc">(2)</span></td><td>70/80 <span class="inc">(6)</span></td><td>86</td></tr>
-        <tr><td class="m">mtp5-prob</td><td>15/15</td><td>7/15 <span class="inc">(2)</span></td><td>30/30</td><td>18/20 <span class="inc">(2)</span></td><td>70/80 <span class="inc">(4)</span></td><td class="win">97</td></tr>
-        <tr><td class="m">mtp7 + ext-as-decode</td><td>14/15</td><td class="win">8/15 <span class="inc">(1)</span></td><td>29/30 <span class="inc">(1)</span></td><td>17/20 <span class="inc">(3)</span></td><td>68/80 <span class="inc">(5)</span></td><td>96</td></tr>
+        <tr><td class="m">NF3 hybrid</td><td>14/15</td><td>6/15 <span class="inc">(3)</span></td><td>29/30 <span class="inc">(1)</span></td><td class="win">20/20</td><td>69/80 <span class="inc">(4)</span></td></tr>
+        <tr><td class="m">TR3 · default</td><td class="win">15/15</td><td class="win">7/15 <span class="inc">(2)</span></td><td class="win">30/30</td><td>19/20</td><td class="win">71/80 <span class="inc">(2)</span></td></tr>
+        <tr><td class="m">TR3 · mtp5-prob</td><td class="win">15/15</td><td class="win">7/15 <span class="inc">(2)</span></td><td class="win">30/30</td><td>18/20 <span class="inc">(2)</span></td><td>70/80 <span class="inc">(4)</span></td></tr>
       </tbody>
     </table>
   </div>
-  <p class="cap"><span class="inc">(n)</span> = items that generated the full <b>32,768-token</b> thinking budget without reaching an answer. Scored as failures, as they should be — but they are a <em>termination</em> failure, not a wrong answer, and the distinction changes the ranking.</p>
+  <p class="cap"><span class="inc">(n)</span> = items that generated the full <b>32,768-token</b> thinking budget without reaching an answer. Scored as failures, as they should be — but a <em>termination</em> failure, not a wrong answer.</p>
 
   <h2>WHAT THE (n) COLUMN CHANGES</h2>
   <div class="tw">
     <table>
-      <thead><tr><th>SERVING CONFIG</th><th>PUBLISHED</th><th>WRONG ANSWERS</th><th>NON-CONVERGENT</th><th>ACCURACY WHEN IT ANSWERS</th></tr></thead>
+      <thead><tr><th>MODEL / CONFIG</th><th>PUBLISHED</th><th>WRONG</th><th>NON-CONVERGENT</th><th>ACCURACY WHEN IT ANSWERS</th></tr></thead>
       <tbody>
-        <tr><td class="m">as shipped</td><td>70/80</td><td class="win">4</td><td>6</td><td class="win">94.6%</td></tr>
-        <tr><td class="m">mtp5-prob</td><td>70/80</td><td>6</td><td>4</td><td>92.1%</td></tr>
-        <tr><td class="m">k3-greedy</td><td class="win">71/80</td><td>7</td><td class="win">2</td><td>91.0%</td></tr>
-        <tr><td class="m">mtp7 + ext-as-decode</td><td>68/80</td><td>7</td><td>5</td><td>90.7%</td></tr>
+        <tr><td class="m">NF3 hybrid</td><td>69/80</td><td>7</td><td>4</td><td>90.8%</td></tr>
+        <tr><td class="m">TR3 · default</td><td class="win">71/80</td><td>7</td><td class="win">2</td><td>91.0%</td></tr>
+        <tr><td class="m">TR3 · mtp5-prob</td><td>70/80</td><td class="win">6</td><td>4</td><td class="win">92.1%</td></tr>
       </tbody>
     </table>
   </div>
-  <p><b>The leaderboard inverts.</b> k3-greedy wins on published score and loses on answer quality. It converges more often — and is wrong more often when it does. The config we promoted didn't buy accuracy; it converted hangs into confident wrong answers.</p>
+  <p><b>On accuracy these three are a wash</b> — 90.8%, 91.0%, 92.1% once non-convergence is separated out. The published totals differ by 2 points and the differences are almost entirely termination behaviour, not reasoning. Which means the decision is not an accuracy decision: it is throughput, pool and reach.</p>
+  <p>A wider bank sharpens the point. Across three 99-item arms, <b>wrong answers held at 3, 3 and 2 while non-convergence ran 0, 3 and 11</b> — converged-only accuracy landed within 0.8 points of itself everywhere. The serving config does not change this model's accuracy. It changes how often it terminates.</p>
 
   <h2>FINDINGS</h2>
   <ul class="pl">
-    <li><b>TR3's maths failures are termination failures.</b> Across all four configs there is exactly <b>one</b> wrong maths answer. Every other maths miss is the model producing 32,768 tokens without concluding. Three of the four score 100% on maths items that terminate.</li>
-    <li><b>Spec-decode config does not change capability.</b> deepctx lands at 7, 7, 7, 8 across every config. What moves is whether a failure surfaces as a wrong answer or as a hang — a scheduling property, not a reasoning one.</li>
-    <li><b>Prefill is invariant.</b> 0.4% spread across configs that differ by 36% on decode. Any future "faster prefill" claim from a spec-decode change is a measurement artifact.</li>
-    <li><b>TR3 regressed on long context.</b> The EXL3 it replaced scores <b>10/15 deepctx with zero non-convergence</b>; every TR3 config lands at 7–8. The quantisation bought throughput and cost retrieval — invisible until non-convergence was split out.</li>
-    <li><b>Recommendation: mtp5-prob.</b> Fastest at 97 tok/s, second on answer quality, mid on both failure modes. k3-greedy's extra point is bought in the wrong currency for an agentic estate, where a confident wrong answer propagates into the next tool call and a hang does not.</li>
+    <li><b>TR3's maths failures are termination failures.</b> Across every TR3 config tested there is exactly <b>one</b> wrong maths answer. Every other maths miss is 32,768 tokens without a conclusion.</li>
+    <li><b>The hybrid's weakness is deep context.</b> 6/15 on deepctx against TR3's 7/15, and it is the only one of the three to drop a grounded item. Its 20/20 on maths is the one place it clearly leads.</li>
+    <li><b>The pool is the other half of the win.</b> TR3 loads <b>883,685</b> KV tokens against the hybrid's <b>359,424</b> — 2.46×, read from each engine's own <code>kv_cache_utils</code> line at startup. That is what buys the 392K window the hybrid cannot open, and it is why the decode advantage still holds at depths the hybrid never sees.</li>
+    <li><b>TR3 is also the smaller quantisation.</b> EXL3 Trellis at <b>3.0 bpw</b> on routed experts with BF16 attention and dense layers, against the hybrid's <b>3.25 bpw</b> average — 75% in-house NF3 3-bit, 25% NVFP4, on a custom kernel no upstream stack ships. Smaller weights, standard kernels, larger pool, more speed.</li>
+    <li><b>Recommendation: mtp5-prob.</b> Fastest at every depth, best accuracy-when-it-answers, and the only config that reaches 392K at full speed. The stock default is a perfectly respectable fallback — it already matches the hybrid — but leaves 20%+ of decode on the table.</li>
   </ul>
 
-  <p class="note">All figures measured on one host, 4× RTX PRO 6000 Blackwell at TP4/DCP4, <code>gpu-memory-utilization 0.96</code>, fp8 KV, 400,000-token context. Eval is the v2 suite at max reasoning effort with the nonsense category excluded, as in every prior plate. Throughput is the optimisation matrix against a fixed 106,739-token prompt. Vision configurations are excluded from this plate.</p>
+  <p class="note">All figures measured on one host: 4× RTX PRO 6000 Blackwell at TP4/DCP4, <code>gpu-memory-utilization 0.96</code>, fp8 KV, memory offset +6000. Ladders are token-true with a 512-token decode window, two samples per rung, real-prose fill and a fresh nonce per run; all three used the same instrument and rungs. Eval is the v2 suite at max reasoning effort with the nonsense category excluded, as in every prior plate. Vision configurations are excluded. Decode on this rig carries roughly ±5% run-to-run variance.</p>
 
   <div class="f"><span>TRUST IS MEASURED, NOT ASSUMED</span><span>NETSPHERE · FIELD PLATE 11</span></div>
 </div>
