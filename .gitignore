@@ -1,3 +1,26 @@
-results/
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
+*.egg-info/
+dist/
+build/
+*.egg
+.venv/
+*.so
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Results
+results/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
