@@ -1,0 +1,319 @@
+<title>NETSPHERE — Field Plate 13</title>
+<style>
+:root{
+  --bg:#0e0e0e;--panel:#141414;--panel2:#181818;--line:#2e2e2e;--line2:#232323;
+  --ink:#efede7;--dim:#b3afa5;--mute:#8d8981;
+  --amber:#d9a821;--amber-dim:#8a6b15;--amber-bg:#1a1508;
+  --miss:#d9553f;--miss-dim:#7a2c1e;--miss-bg:#170d0a;
+  --ok:#6d9e79;--ok-dim:#2f5237;
+  --mono:ui-monospace,"Cascadia Mono","JetBrains Mono",Consolas,Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--bg)}
+body{font-family:var(--mono);color:var(--ink);background:var(--bg);font-size:14.5px;line-height:1.55;padding:26px 18px 46px}
+.plate{max-width:1060px;margin:0 auto}
+.brandbar{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;padding:0 2px 12px}
+.brand{font-weight:700;letter-spacing:.5em;font-size:11.5px}
+.brandbar .n{color:var(--mute);font-size:10px;letter-spacing:.18em}
+h1{font-size:21px;letter-spacing:.01em;font-weight:700;padding:14px 0 5px;border-top:1px solid var(--line);text-wrap:balance}
+.sub{color:var(--dim);font-size:15px;max-width:78ch;padding-bottom:16px;line-height:1.5}
+.sub em{color:var(--ink);font-style:normal;border-bottom:1px dotted var(--mute)}
+h2{font-size:10px;letter-spacing:.24em;color:var(--amber);font-weight:700;padding:30px 0 10px}
+p{max-width:84ch;color:var(--dim);padding-bottom:8px;font-size:14px}
+p b,strong{color:var(--ink);font-weight:700}
+code{color:var(--amber);font-size:13px;white-space:nowrap}
+
+.hero{display:flex;flex-wrap:wrap;gap:1px;background:var(--line2);border:1px solid var(--line);margin-bottom:4px}
+.hero div{flex:1 1 145px;background:var(--panel);padding:13px 14px}
+.hero b{display:block;font-size:31px;line-height:1.05;color:var(--amber);font-variant-numeric:tabular-nums;letter-spacing:0}
+.hero b small{font-size:14px;color:var(--dim);font-weight:400;margin-left:4px;letter-spacing:.02em}
+.hero span{display:block;font-size:9.5px;letter-spacing:.15em;color:var(--mute);padding-top:6px}
+
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:820px){ .duo{grid-template-columns:1fr} }
+
+.figwrap{border:1px solid var(--line);background:var(--panel)}
+.figbar{display:flex;justify-content:space-between;gap:8px;padding:6px 10px;background:var(--panel2);border-bottom:1px solid var(--line2);font-size:9px;letter-spacing:.14em;color:var(--mute)}
+svg{display:block;width:100%;height:auto}
+.legend{display:flex;gap:14px;flex-wrap:wrap;padding:9px 11px 0;font-size:11.5px;color:var(--dim)}
+.sw{display:inline-block;width:10px;height:10px;margin-right:6px;vertical-align:-1px}
+.cap{color:var(--mute);font-size:12.5px;max-width:84ch;padding:10px 11px 11px;line-height:1.5}
+
+.tw{border:1px solid var(--line);background:var(--panel);margin-top:4px}
+table{border-collapse:collapse;width:100%;font-size:13.5px;table-layout:auto}
+th{background:var(--panel2);color:var(--mute);text-align:left;font-size:9.5px;letter-spacing:.15em;font-weight:700;padding:8px 10px;border-bottom:1px solid var(--line)}
+td{padding:9px 10px;border-bottom:1px solid var(--line2);color:var(--dim);font-variant-numeric:tabular-nums;white-space:normal;line-height:1.45}
+tr:last-child td{border-bottom:none}
+td.m{color:var(--ink);font-weight:700}
+td.win{color:var(--amber);font-weight:700}
+td.bad{color:var(--miss);font-weight:700}
+td.flat{color:var(--mute)}
+
+ul.pl{list-style:none;padding:2px 0 4px}
+ul.pl li{color:var(--dim);padding:5px 0 5px 20px;position:relative;max-width:84ch;font-size:14px;line-height:1.55}
+ul.pl li::before{content:"›";position:absolute;left:3px;color:var(--amber-dim)}
+ul.pl li b{color:var(--ink)}
+ul.pl li em{color:var(--dim);font-style:normal;border-bottom:1px dotted var(--mute)}
+
+.warn{background:var(--miss-bg);border:1px solid var(--miss-dim);border-left:2px solid var(--miss);padding:13px 15px;margin-top:4px}
+.warn .tag{font-size:9.5px;letter-spacing:.2em;color:var(--miss);padding-bottom:5px}
+.warn h4{font-size:14.5px;font-weight:700;padding-bottom:6px}
+.warn p{font-size:13.5px;padding-bottom:6px;max-width:none}
+.warn p:last-child{padding-bottom:0}
+.warn pre{background:#0b0b0b;border:1px solid var(--line2);padding:9px 11px;margin:6px 0 8px;font-size:12.5px;color:var(--dim);overflow-x:auto;line-height:1.5}
+.warn pre b{color:var(--ink)}
+
+.note{color:var(--mute);font-size:12.5px;max-width:84ch;padding-top:10px;line-height:1.5}
+.f{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;border-top:1px solid var(--line);margin-top:32px;padding-top:12px;font-size:10px;letter-spacing:.14em;color:var(--mute)}
+</style>
+
+<div class="plate">
+
+  <div class="brandbar"><span class="brand">NETSPHERE</span><span class="n">FIELD PLATE 13 · DEEPSEEK V4-FLASH 0731 · 2026-07-31</span></div>
+
+  <h1>It Didn't Get Smarter. It Got Obedient.</h1>
+  <p class="sub">DeepSeek shipped a new V4-Flash checkpoint. Our suite said <em>+10 points</em>. Re-scoring the same stored answers said <em>+2</em>. The gap between those two numbers is the whole story — and it is a story about the harness, not the model.</p>
+
+  <div class="hero">
+    <div><b>4.89<small>M</small></b><span>KV POOL · TOKENS</span></div>
+    <div><b>199.8</b><span>DECODE @4K · TOK/S</span></div>
+    <div><b>9,913</b><span>PEAK PREFILL · TOK/S</span></div>
+    <div><b>9→1</b><span>FORMAT FAILURES</span></div>
+    <div><b>+2<small>/80</small></b><span>REAL CONTENT DELTA</span></div>
+  </div>
+
+  <h2>DECODE — THE COST OF DEPTH</h2>
+  <div class="figwrap">
+    <div class="figbar"><span>DECODE THROUGHPUT vs CONTEXT</span><span>tok/s · single stream</span></div>
+    <div class="legend">
+      <span><i class="sw" style="background:#d9a821"></i>0731 · measured, 2 reps/rung</span>
+      <span><i class="sw" style="background:#4a4a4a"></i>0711 · recorded figures, not re-measured</span>
+    </div>
+    <svg viewBox="0 0 980 300" xmlns="http://www.w3.org/2000/svg" role="img"
+         aria-label="Decode throughput falls with context length: 199.8 tokens per second at 4K, 164.4 at 32K, 111.6 at 128K, 82.9 at 262K, 51.2 at 524K, 28.8 at 761K.">
+      <style>
+        .gr{stroke:#2a2a2a;stroke-width:1}
+        .ax{fill:#8d8981;font:700 9.5px ui-monospace,monospace;letter-spacing:.1em}
+        .va{fill:#d9a821;font:700 11.5px ui-monospace,monospace}
+        .vb{fill:#8d8981;font:600 11px ui-monospace,monospace}
+      </style>
+      <text class="ax" x="8" y="18">tok/s</text>
+      <line class="gr" x1="70" y1="46"  x2="940" y2="46"/>
+      <line class="gr" x1="70" y1="97"  x2="940" y2="97"/>
+      <line class="gr" x1="70" y1="148" x2="940" y2="148"/>
+      <line class="gr" x1="70" y1="199" x2="940" y2="199"/>
+      <line class="gr" x1="70" y1="250" x2="940" y2="250"/>
+      <text class="ax" x="62" y="50"  text-anchor="end">250</text>
+      <text class="ax" x="62" y="101" text-anchor="end">200</text>
+      <text class="ax" x="62" y="152" text-anchor="end">150</text>
+      <text class="ax" x="62" y="203" text-anchor="end">100</text>
+      <text class="ax" x="62" y="254" text-anchor="end">50</text>
+
+      <text class="ax" x="120" y="272" text-anchor="middle">4K</text>
+      <text class="ax" x="270" y="272" text-anchor="middle">32K</text>
+      <text class="ax" x="420" y="272" text-anchor="middle">128K</text>
+      <text class="ax" x="570" y="272" text-anchor="middle">262K</text>
+      <text class="ax" x="720" y="272" text-anchor="middle">524K</text>
+      <text class="ax" x="870" y="272" text-anchor="middle">761K</text>
+      <text class="ax" x="505" y="292" text-anchor="middle">PROMPT LENGTH</text>
+
+      <path d="M120 46 L570 152 L870 219" fill="none" stroke="#4a4a4a" stroke-width="2.2" stroke-dasharray="5 4" stroke-linejoin="round"/>
+      <circle cx="120" cy="46"  r="4" fill="#4a4a4a" stroke="#141414" stroke-width="1.8"/>
+      <circle cx="570" cy="152" r="4" fill="#4a4a4a" stroke="#141414" stroke-width="1.8"/>
+      <circle cx="870" cy="219" r="4" fill="#4a4a4a" stroke="#141414" stroke-width="1.8"/>
+      <text class="vb" x="120" y="36" text-anchor="middle">255</text>
+      <text class="vb" x="570" y="142" text-anchor="middle">96</text>
+      <text class="vb" x="878" y="211">31</text>
+
+      <path d="M120 97 L270 133 L420 187 L570 216 L720 248 L870 271" fill="none" stroke="#d9a821" stroke-width="2.6" stroke-linejoin="round"/>
+      <circle cx="120" cy="97"  r="4.4" fill="#d9a821" stroke="#141414" stroke-width="1.8"/>
+      <circle cx="270" cy="133" r="4.4" fill="#d9a821" stroke="#141414" stroke-width="1.8"/>
+      <circle cx="420" cy="187" r="4.4" fill="#d9a821" stroke="#141414" stroke-width="1.8"/>
+      <circle cx="570" cy="216" r="4.4" fill="#d9a821" stroke="#141414" stroke-width="1.8"/>
+      <circle cx="720" cy="248" r="4.4" fill="#d9a821" stroke="#141414" stroke-width="1.8"/>
+      <circle cx="870" cy="271" r="4.4" fill="#d9a821" stroke="#141414" stroke-width="1.8"/>
+      <text class="va" x="120" y="115" text-anchor="middle">199.8</text>
+      <text class="va" x="270" y="151" text-anchor="middle">164.4</text>
+      <text class="va" x="420" y="205" text-anchor="middle">111.6</text>
+      <text class="va" x="570" y="234" text-anchor="middle">82.9</text>
+      <text class="va" x="720" y="266" text-anchor="middle">51.2</text>
+      <text class="va" x="878" y="285">28.8</text>
+    </svg>
+    <p class="cap">Decode falls <b>7×</b> from 4K to 761K. The grey line is the previous arm's <em>recorded</em> figures from the config of record — a different speculative setting (k=5 probabilistic vs k=7 greedy) on a different serving profile, plotted for orientation only. It was not re-measured for this plate and no claim is made from it.</p>
+  </div>
+
+  <h2>PREFILL — AND WHERE IT PEAKS</h2>
+  <div class="figwrap">
+    <div class="figbar"><span>PREFILL THROUGHPUT vs CONTEXT</span><span>tok/s · TTFT-derived</span></div>
+    <svg viewBox="0 0 980 300" xmlns="http://www.w3.org/2000/svg" role="img"
+         aria-label="Prefill throughput peaks at 32K: 7977 tokens per second at 4K, 9913 at 32K, 8477 at 128K, 5982 at 262K, 5089 at 524K, 3506 at 761K.">
+      <style>
+        .gr2{stroke:#2a2a2a;stroke-width:1}
+        .ax2{fill:#8d8981;font:700 9.5px ui-monospace,monospace;letter-spacing:.1em}
+        .va2{fill:#d9a821;font:700 11.5px ui-monospace,monospace}
+      </style>
+      <text class="ax2" x="8" y="18">tok/s</text>
+      <line class="gr2" x1="70" y1="46"  x2="940" y2="46"/>
+      <line class="gr2" x1="70" y1="97"  x2="940" y2="97"/>
+      <line class="gr2" x1="70" y1="148" x2="940" y2="148"/>
+      <line class="gr2" x1="70" y1="199" x2="940" y2="199"/>
+      <line class="gr2" x1="70" y1="250" x2="940" y2="250"/>
+      <text class="ax2" x="62" y="50"  text-anchor="end">10K</text>
+      <text class="ax2" x="62" y="101" text-anchor="end">8K</text>
+      <text class="ax2" x="62" y="152" text-anchor="end">6K</text>
+      <text class="ax2" x="62" y="203" text-anchor="end">4K</text>
+      <text class="ax2" x="62" y="254" text-anchor="end">2K</text>
+
+      <text class="ax2" x="120" y="272" text-anchor="middle">4K</text>
+      <text class="ax2" x="270" y="272" text-anchor="middle">32K</text>
+      <text class="ax2" x="420" y="272" text-anchor="middle">128K</text>
+      <text class="ax2" x="570" y="272" text-anchor="middle">262K</text>
+      <text class="ax2" x="720" y="272" text-anchor="middle">524K</text>
+      <text class="ax2" x="870" y="272" text-anchor="middle">761K</text>
+      <text class="ax2" x="505" y="292" text-anchor="middle">PROMPT LENGTH</text>
+
+      <path d="M120 98 L270 48 L420 87 L570 151 L720 173 L870 213" fill="none" stroke="#d9a821" stroke-width="2.6" stroke-linejoin="round"/>
+      <circle cx="120" cy="98"  r="4.4" fill="#d9a821" stroke="#141414" stroke-width="1.8"/>
+      <circle cx="270" cy="48"  r="4.4" fill="#d9a821" stroke="#141414" stroke-width="1.8"/>
+      <circle cx="420" cy="87"  r="4.4" fill="#d9a821" stroke="#141414" stroke-width="1.8"/>
+      <circle cx="570" cy="151" r="4.4" fill="#d9a821" stroke="#141414" stroke-width="1.8"/>
+      <circle cx="720" cy="173" r="4.4" fill="#d9a821" stroke="#141414" stroke-width="1.8"/>
+      <circle cx="870" cy="213" r="4.4" fill="#d9a821" stroke="#141414" stroke-width="1.8"/>
+      <text class="va2" x="120" y="118" text-anchor="middle">7,977</text>
+      <text class="va2" x="270" y="38"  text-anchor="middle">9,913</text>
+      <text class="va2" x="420" y="77"  text-anchor="middle">8,477</text>
+      <text class="va2" x="570" y="171" text-anchor="middle">5,982</text>
+      <text class="va2" x="720" y="193" text-anchor="middle">5,089</text>
+      <text class="va2" x="878" y="228">3,506</text>
+    </svg>
+    <p class="cap"><b>Prefill peaks at 32K, not at 4K.</b> Short prompts cannot fill the batch — the GPUs are idle waiting for work. By 128K the batch is saturated and throughput starts paying for attention over a longer sequence, falling to 3,506 tok/s by 761K. A full 761K prefill takes just over two minutes before the first token appears.</p>
+  </div>
+
+  <h2>KV POOL — THE PART THAT DIDN'T MOVE</h2>
+  <div class="tw">
+    <table>
+      <thead><tr><th>ARM</th><th>KV POOL</th><th>MAX CONCURRENCY @1M</th><th>SERVING</th></tr></thead>
+      <tbody>
+        <tr><td class="m">0731 · dsv4-flash-0731</td><td class="win">4,891,509</td><td>4.66×</td><td>TP=4 · fp8 KV · DSpark k=7 greedy</td></tr>
+        <tr><td class="m">0711 · dsv4-1m</td><td>4,904,771</td><td>4.68×</td><td>TP=4 · fp8 KV · DSpark k=5 prob.</td></tr>
+        <tr><td class="m">delta</td><td class="flat">−13,262 (−0.3%)</td><td class="flat">−0.02×</td><td class="flat">two extra draft slots</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Same ballpark by design, and that is the useful part: <b>the memory configuration is not a variable in anything that follows.</b> The 0.3% deficit is exactly what two additional speculative draft slots cost. If the KV pool had moved materially, every score below would need re-litigating.</p>
+
+  <h2>THE EXAM — AS THE HARNESS SCORED IT</h2>
+  <div class="figwrap">
+    <div class="figbar"><span>netterm-eval v2 · STRICT SCORING</span><span>74/80 vs 64/80</span></div>
+    <div class="legend">
+      <span><i class="sw" style="background:#d9a821"></i>0731 · 74/80</span>
+      <span><i class="sw" style="background:#4a4a4a"></i>0711 · 64/80</span>
+    </div>
+    <svg viewBox="0 0 980 300" xmlns="http://www.w3.org/2000/svg" role="img"
+         aria-label="Strict scoring by category. Agentic 15 of 15 versus 14 of 15. Deep context 10 of 15 both. Grounded v2 29 of 30 versus 23 of 30. Math hard 20 of 20 versus 17 of 20.">
+      <style>
+        .g3{stroke:#2a2a2a;stroke-width:1}
+        .a3{fill:#8d8981;font:700 9.5px ui-monospace,monospace;letter-spacing:.1em}
+        .c3{fill:#b3afa5;font:700 12px ui-monospace,monospace}
+        .m3{fill:#d9a821;font:700 11.5px ui-monospace,monospace}
+        .n3{fill:#8d8981;font:600 11.5px ui-monospace,monospace}
+      </style>
+      <line class="g3" x1="180" y1="18" x2="180" y2="262"/>
+      <line class="g3" x1="360" y1="18" x2="360" y2="262"/>
+      <line class="g3" x1="540" y1="18" x2="540" y2="262"/>
+      <line class="g3" x1="720" y1="18" x2="720" y2="262"/>
+      <line class="g3" x1="900" y1="18" x2="900" y2="262"/>
+      <text class="a3" x="180" y="282" text-anchor="middle">0%</text>
+      <text class="a3" x="360" y="282" text-anchor="middle">25%</text>
+      <text class="a3" x="540" y="282" text-anchor="middle">50%</text>
+      <text class="a3" x="720" y="282" text-anchor="middle">75%</text>
+      <text class="a3" x="900" y="282" text-anchor="middle">100%</text>
+
+      <text class="c3" x="168" y="52"  text-anchor="end">agentic</text>
+      <text class="c3" x="168" y="112" text-anchor="end">deepctx</text>
+      <text class="c3" x="168" y="172" text-anchor="end">grounded_v2</text>
+      <text class="c3" x="168" y="232" text-anchor="end">math_hard</text>
+
+      <rect x="180" y="30" width="720"   height="18" fill="#d9a821"/><text class="m3" x="910" y="45">15/15</text>
+      <rect x="180" y="52" width="672"   height="18" fill="#4a4a4a"/><text class="n3" x="862" y="67">14/15</text>
+      <rect x="180" y="90" width="480"   height="18" fill="#d9a821"/><text class="m3" x="670" y="105">10/15</text>
+      <rect x="180" y="112" width="480"  height="18" fill="#4a4a4a"/><text class="n3" x="670" y="127">10/15</text>
+      <rect x="180" y="150" width="696"  height="18" fill="#d9a821"/><text class="m3" x="886" y="165">29/30</text>
+      <rect x="180" y="172" width="552"  height="18" fill="#4a4a4a"/><text class="n3" x="742" y="187">23/30</text>
+      <rect x="180" y="210" width="720"  height="18" fill="#d9a821"/><text class="m3" x="910" y="225">20/20</text>
+      <rect x="180" y="232" width="612"  height="18" fill="#4a4a4a"/><text class="n3" x="802" y="247">17/20</text>
+    </svg>
+    <p class="cap">Overall <b>74/80 vs 64/80</b>, +12.5pp, exact McNemar <b>p=0.0129</b>. Read at face value: the new checkpoint is markedly better at grounding and at hard maths. That reading is wrong.</p>
+  </div>
+
+  <h2>HOW IT FAILED</h2>
+  <div class="warn">
+    <div class="tag">SCORER · no_final_answer_line</div>
+    <h4>Nine correct answers, scored as wrong.</h4>
+    <p>Every scored task ends with the same instruction: <b>end your reply with a line reading <code>FINAL ANSWER: &lt;answer&gt;</code></b>. The scorer looks for that line and, if it is absent, fails the item <b>without ever comparing the content</b>:</p>
+    <pre>ans = extract_final(r["content"])          <b># last /FINAL ANSWER:\s*(.+)/ match</b>
+if ans is None:
+    return False, "no_final_answer_line"   <b># never looks at the answer</b></pre>
+    <p>The 0711 arm answered many items correctly and tersely — <code>18</code>, <code>3952</code>, <code>NOT IN CONTEXT</code> — with no trailing line. <b>Nine such items were marked wrong on formatting alone.</b> The 0731 arm did it once.</p>
+    <p><b>This is not a bug that invents a winner — the difference is real.</b> The instruction is explicit and followable, and one model followed it nine times more reliably than the other. What the score gets wrong is <em>which skill it credits</em>: seven of those nine sit in a category called <code>grounded_v2</code>, and not one of them was a grounding error. Format compliance was silently filed as reasoning ability.</p>
+  </div>
+
+  <h2>THE EXAM — RE-SCORED ON CONTENT</h2>
+  <div class="figwrap">
+    <div class="figbar"><span>netterm-eval v2 · FORMAT-BLIND</span><span>75/80 vs 73/80</span></div>
+    <div class="legend">
+      <span><i class="sw" style="background:#d9a821"></i>0731 · 75/80</span>
+      <span><i class="sw" style="background:#4a4a4a"></i>0711 · 73/80</span>
+    </div>
+    <svg viewBox="0 0 980 300" xmlns="http://www.w3.org/2000/svg" role="img"
+         aria-label="Format-blind scoring by category. Agentic 15 of 15 versus 14 of 15. Deep context 10 of 15 both. Grounded v2 30 of 30 both. Math hard 20 of 20 versus 19 of 20.">
+      <style>
+        .g4{stroke:#2a2a2a;stroke-width:1}
+        .a4{fill:#8d8981;font:700 9.5px ui-monospace,monospace;letter-spacing:.1em}
+        .c4{fill:#b3afa5;font:700 12px ui-monospace,monospace}
+        .m4{fill:#d9a821;font:700 11.5px ui-monospace,monospace}
+        .n4{fill:#8d8981;font:600 11.5px ui-monospace,monospace}
+        .r4{fill:#6d9e79;font:700 10.5px ui-monospace,monospace;letter-spacing:.08em}
+      </style>
+      <line class="g4" x1="180" y1="18" x2="180" y2="262"/>
+      <line class="g4" x1="360" y1="18" x2="360" y2="262"/>
+      <line class="g4" x1="540" y1="18" x2="540" y2="262"/>
+      <line class="g4" x1="720" y1="18" x2="720" y2="262"/>
+      <line class="g4" x1="900" y1="18" x2="900" y2="262"/>
+      <text class="a4" x="180" y="282" text-anchor="middle">0%</text>
+      <text class="a4" x="360" y="282" text-anchor="middle">25%</text>
+      <text class="a4" x="540" y="282" text-anchor="middle">50%</text>
+      <text class="a4" x="720" y="282" text-anchor="middle">75%</text>
+      <text class="a4" x="900" y="282" text-anchor="middle">100%</text>
+
+      <text class="c4" x="168" y="52"  text-anchor="end">agentic</text>
+      <text class="c4" x="168" y="112" text-anchor="end">deepctx</text>
+      <text class="c4" x="168" y="172" text-anchor="end">grounded_v2</text>
+      <text class="c4" x="168" y="232" text-anchor="end">math_hard</text>
+
+      <rect x="180" y="30" width="720"   height="18" fill="#d9a821"/><text class="m4" x="910" y="45">15/15</text>
+      <rect x="180" y="52" width="672"   height="18" fill="#4a4a4a"/><text class="n4" x="862" y="67">14/15</text>
+      <rect x="180" y="90" width="480"   height="18" fill="#d9a821"/><text class="m4" x="670" y="105">10/15</text>
+      <rect x="180" y="112" width="480"  height="18" fill="#4a4a4a"/><text class="n4" x="670" y="127">10/15</text>
+      <rect x="180" y="150" width="720"  height="18" fill="#d9a821"/><text class="m4" x="910" y="165">30/30</text>
+      <rect x="180" y="172" width="720"  height="18" fill="#4a4a4a"/><text class="n4" x="910" y="187">30/30</text>
+      <text class="r4" x="742" y="187" text-anchor="end">+7 recovered →</text>
+      <rect x="180" y="210" width="720"  height="18" fill="#d9a821"/><text class="m4" x="910" y="225">20/20</text>
+      <rect x="180" y="232" width="684"  height="18" fill="#4a4a4a"/><text class="n4" x="874" y="247">19/20</text>
+      <text class="r4" x="602" y="247" text-anchor="end">+2 recovered →</text>
+    </svg>
+    <p class="cap">Same stored responses, nothing re-run. Extraction changed; matching untouched — the re-scorer <b>imports the harness's own <code>answers_match</code></b>. Overall <b>75/80 vs 73/80</b>, +2.5pp, <b>p=0.6875</b>. <b>grounded_v2 is 30/30 on both arms.</b></p>
+  </div>
+
+  <h2>WHAT IS ACTUALLY TRUE</h2>
+  <ul class="pl">
+    <li><b>Reasoning is a tie.</b> On content, 75 vs 73 out of 80 — p=0.6875, null. The two genuine gains are single items: one where the old arm ran out of tokens mid-calculation, one where it misread an O for a Q.</li>
+    <li><b>Instruction compliance is not a tie — it is 9 to 1.</b> That is the largest real difference between these checkpoints, and for a model driving tool calls, structured proposals and worker JSON, it may matter more than the reasoning parity does.</li>
+    <li><b>Deep context did not move: 10/15 on both arms</b>, with an identical needle-depth profile (3/5 · 4/5 · 3/5). Only 2 of 100 responses hit the token ceiling, so this is a capability ceiling and not a budget artifact. It is the one number in this plate that no scoring choice changes.</li>
+    <li><b>The board needs re-scoring.</b> Every model on the v2 leaderboard was ranked by this rule, so all of them are ranked partly on how reliably they emit a literal string. The transcripts are on disk; the correction costs no inference.</li>
+  </ul>
+
+  <p class="note">netterm-eval v2 · <code>--seed 7 --ctx-tokens 100000 --deepctx-items 15 --concurrency 1</code>, temperature 0, <code>max_tokens 16384</code> with reasoning enabled on both arms. Pairwise figures are exact two-sided McNemar on discordant items. Ladder: <code>bench_any.py</code>, 2 reps per rung, prefill/decode split at first streamed token, single stream. The deepest rung targeted 1M and reached <b>761,344</b> actual prompt tokens — the filler's chars-per-token estimate undershoots; it is labelled by what was measured. Both arms served with vLLM TP=4 on 4× RTX PRO 6000 Blackwell. <b>The two arms differ in more than the checkpoint</b> — speculative config (k=5 probabilistic → k=7 greedy) and serving profile moved with it — so no single delta here is attributable to weights alone. The 0711 decode figures in the first chart are recorded values from the config of record, not re-measured for this plate.</p>
+
+  <div class="f"><span>TRUST IS MEASURED, NOT ASSUMED</span><span>NETSPHERE · FIELD PLATE 13</span></div>
+</div>
